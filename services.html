@@ -47,11 +47,8 @@
     position:relative;overflow:hidden;
     box-shadow:0 16px 40px rgba(63,90,51,.18);
   }
-  .service-hero-image::after{
-    content:attr(data-label);
-    position:absolute;inset:0;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  .service-hero-image img{
+    width:100%;height:100%;object-fit:cover;display:block;
   }
 
   /* セクション分割帯 */
@@ -229,6 +226,7 @@
         <li><a href="index.html">トップ</a></li>
         <li><a href="services.html" class="current">施術内容</a></li>
         <li><a href="price.html">料金</a></li>
+        <li><a href="index.html#staff">スタッフ</a></li>
         <li><a href="contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -254,7 +252,12 @@
      ============================================ -->
 <section class="service-hero">
   <div class="container service-hero-grid">
-    <div class="service-hero-image" data-label="訪問マッサージ施術風景"></div>
+    <div class="service-hero-image">
+      <picture>
+        <source srcset="images/service-massage-2.webp" type="image/webp">
+        <img src="images/service-massage-2.jpg" alt="訪問マッサージの施術風景" loading="lazy">
+      </picture>
+    </div>
     <div>
       <span class="service-tag-large">MENU 01</span>
       <h2>
@@ -358,7 +361,40 @@
         一般にはあまり知られていませんが、鍼灸には血液循環を良くしたり、免疫細胞の増加・活性化に作用があります。また、内臓の働きを調節する自律神経を整え、身体の持つ恒常性維持機能を高める働きもあります。
       </p>
     </div>
-    <div class="service-hero-image" data-label="訪問鍼灸施術風景"></div>
+    <div class="service-hero-image" style="background:linear-gradient(135deg,#8FAE7A 0%,#3F5A33 100%);">
+      <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
+        <circle cx="300" cy="240" r="160" fill="rgba(250,246,236,0.08)"/>
+        <circle cx="300" cy="240" r="110" fill="rgba(250,246,236,0.06)"/>
+        <g transform="translate(220 180)">
+          <line x1="0" y1="0" x2="0" y2="120" stroke="#FAF6EC" stroke-width="1.5" opacity="0.85"/>
+          <circle cx="0" cy="-4" r="4" fill="#FAF6EC" opacity="0.85"/>
+        </g>
+        <g transform="translate(260 200)">
+          <line x1="0" y1="0" x2="0" y2="100" stroke="#FAF6EC" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="0" cy="-4" r="3.5" fill="#FAF6EC" opacity="0.7"/>
+        </g>
+        <g transform="translate(300 170)">
+          <line x1="0" y1="0" x2="0" y2="140" stroke="#FAF6EC" stroke-width="2" opacity="1"/>
+          <circle cx="0" cy="-5" r="5" fill="#FAF6EC"/>
+        </g>
+        <g transform="translate(340 200)">
+          <line x1="0" y1="0" x2="0" y2="100" stroke="#FAF6EC" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="0" cy="-4" r="3.5" fill="#FAF6EC" opacity="0.7"/>
+        </g>
+        <g transform="translate(380 180)">
+          <line x1="0" y1="0" x2="0" y2="120" stroke="#FAF6EC" stroke-width="1.5" opacity="0.85"/>
+          <circle cx="0" cy="-4" r="4" fill="#FAF6EC" opacity="0.85"/>
+        </g>
+        <g fill="rgba(217,164,91,0.4)">
+          <circle cx="220" cy="320" r="6"/>
+          <circle cx="260" cy="320" r="6"/>
+          <circle cx="300" cy="320" r="8"/>
+          <circle cx="340" cy="320" r="6"/>
+          <circle cx="380" cy="320" r="6"/>
+        </g>
+        <text x="300" y="430" text-anchor="middle" fill="#FAF6EC" font-family="serif" font-size="14" letter-spacing="0.2em" opacity="0.85">VISITING ACUPUNCTURE</text>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -504,6 +540,7 @@
           <li><a href="index.html">トップ</a></li>
           <li><a href="services.html">施術内容</a></li>
           <li><a href="price.html">料金</a></li>
+          <li><a href="index.html#staff">スタッフ</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
       </div>

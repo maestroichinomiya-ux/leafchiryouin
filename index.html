@@ -60,16 +60,13 @@
   .hero-visual{position:relative}
   .hero-photo{
     width:100%;aspect-ratio:4/5;
-    background:linear-gradient(135deg,#7a9462 0%,#3f5a33 100%);
     border-radius:300px 300px 16px 16px;
     position:relative;overflow:hidden;
     box-shadow:0 24px 60px rgba(63,90,51,.22);
+    background:linear-gradient(135deg,#7a9462 0%,#3f5a33 100%);
   }
-  .hero-photo::after{
-    content:"院長施術風景の写真";
-    position:absolute;inset:0;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
   }
   .hero-badge{
     position:absolute;top:30px;right:-10px;
@@ -106,13 +103,13 @@
   }
   .worry-card:hover{transform:translateY(-4px);border-color:var(--green)}
   .worry-icon{
-    width:60px;height:60px;margin:0 auto 16px;
+    width:88px;height:88px;margin:0 auto 16px;
     background:var(--green-soft);
     border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    font-family:'Noto Serif JP',serif;color:var(--green-deep);
-    font-size:22px;font-weight:700;
+    color:var(--green-deep);
   }
+  .worry-icon svg{width:54px;height:54px}
   .worry-card h4{
     font-family:'Noto Serif JP',serif;font-size:15px;
     color:var(--green-deep);font-weight:700;letter-spacing:.05em;
@@ -126,6 +123,56 @@
     font-size:14px;color:var(--ink-soft);
   }
   .worries-note strong{color:var(--green-deep);display:block;margin-bottom:4px;font-family:'Noto Serif JP',serif}
+
+  /* ========== STAFF ========== */
+  .staff{background:var(--cream)}
+  .staff-photo{
+    position:relative;border-radius:32px;overflow:hidden;
+    margin:20px 0 50px;
+    aspect-ratio:16/8;
+    box-shadow:0 20px 50px rgba(63,90,51,.18);
+  }
+  .staff-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .staff-caption{
+    position:absolute;left:40px;bottom:40px;
+    background:rgba(63,90,51,.92);
+    backdrop-filter:blur(8px);
+    color:var(--cream);
+    padding:24px 32px;border-radius:20px;
+    max-width:380px;
+  }
+  .staff-tag{
+    display:inline-block;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:13px;color:var(--green-soft);
+    letter-spacing:.15em;margin-bottom:8px;
+  }
+  .staff-caption p{
+    font-family:'Noto Serif JP',serif;font-size:16px;
+    font-weight:700;line-height:1.6;letter-spacing:.04em;
+  }
+  .staff-points{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;margin-top:0;
+  }
+  .staff-point{
+    background:var(--cream-deep);
+    padding:32px 28px;border-radius:20px;
+    border:1px solid var(--line);
+    text-align:center;
+  }
+  .staff-point-num{
+    display:inline-block;
+    background:var(--green-mid);color:var(--cream);
+    padding:6px 18px;border-radius:999px;
+    font-family:'Noto Serif JP',serif;
+    font-size:13px;font-weight:700;letter-spacing:.08em;
+    margin-bottom:14px;
+  }
+  .staff-point p{
+    font-size:14px;color:var(--ink-soft);
+    line-height:1.9;
+  }
 
   /* ========== REASONS ========== */
   .reasons{background:var(--cream)}
@@ -170,11 +217,8 @@
     position:relative;overflow:hidden;
     box-shadow:0 16px 40px rgba(63,90,51,.15);
   }
-  .service-image::after{
-    content:"施術風景";
-    position:absolute;inset:0;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  .service-image img{
+    width:100%;height:100%;object-fit:cover;display:block;
   }
   .service-tag{
     display:inline-block;
@@ -320,6 +364,14 @@
   }
 
   @media(max-width:960px){
+    .staff-photo{aspect-ratio:4/3;border-radius:20px;margin:10px 0 30px}
+    .staff-caption{
+      left:16px;right:16px;bottom:16px;
+      padding:16px 20px;max-width:none;
+    }
+    .staff-caption p{font-size:13px}
+    .staff-points{grid-template-columns:1fr;gap:14px}
+    .staff-point{padding:24px}
     .hero-inner{grid-template-columns:1fr;gap:40px;padding:40px 0 80px}
     .hero h1{font-size:34px}
     .worries-grid{grid-template-columns:repeat(2,1fr)}
@@ -354,6 +406,7 @@
         <li><a href="index.html" class="current">トップ</a></li>
         <li><a href="services.html">施術内容</a></li>
         <li><a href="price.html">料金</a></li>
+        <li><a href="index.html#staff">スタッフ</a></li>
         <li><a href="contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -389,7 +442,12 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-photo"></div>
+      <div class="hero-photo">
+        <picture>
+          <source srcset="images/hero.webp" type="image/webp">
+          <img src="images/hero.jpg" alt="患者さまに親身に寄り添う一宮訪問マッサージ" loading="eager">
+        </picture>
+      </div>
       <div class="hero-badge">
         <small>FREE TRIAL</small>
         <strong>無料体験</strong>
@@ -410,14 +468,130 @@
       訪問マッサージ・訪問鍼灸が、毎日の暮らしを支えます。
     </p>
     <div class="worries-grid">
-      <div class="worry-card"><div class="worry-icon">肩</div><h4>肩や首・腰・膝が痛い</h4></div>
-      <div class="worry-card"><div class="worry-icon">関</div><h4>関節が曲げづらい</h4><p>拘縮など</p></div>
-      <div class="worry-card"><div class="worry-icon">麻</div><h4>麻痺がある</h4><p>脳梗塞の後遺症など</p></div>
-      <div class="worry-card"><div class="worry-icon">P</div><h4>パーキンソン病</h4></div>
-      <div class="worry-card"><div class="worry-icon">リ</div><h4>リウマチ</h4></div>
-      <div class="worry-card"><div class="worry-icon">骨</div><h4>骨折後の後遺症</h4></div>
-      <div class="worry-card"><div class="worry-icon">筋</div><h4>筋萎縮・筋力の低下</h4></div>
-      <div class="worry-card"><div class="worry-icon">通</div><h4>通院が困難</h4></div>
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="20" r="9" fill="#3F5A33" stroke="#3F5A33" stroke-width="1"/>
+            <path d="M 38 32 Q 50 28 62 32 L 62 60 Q 60 72 50 80 Q 40 72 38 60 Z" fill="#3F5A33" stroke="#3F5A33" stroke-width="1.2"/>
+            <g stroke="#D9A45B" stroke-width="2" stroke-linecap="round" fill="none">
+              <path d="M 32 36 L 24 30"/><path d="M 30 42 L 22 42"/><path d="M 32 48 L 24 54"/>
+              <path d="M 68 36 L 76 30"/><path d="M 70 42 L 78 42"/><path d="M 68 48 L 76 54"/>
+            </g>
+            <circle cx="35" cy="42" r="3.5" fill="#D9A45B" opacity="0.6"/>
+            <circle cx="65" cy="42" r="3.5" fill="#D9A45B" opacity="0.6"/>
+          </svg>
+        </div>
+        <h4>肩や首・腰・膝が痛い</h4>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <line x1="22" y1="22" x2="50" y2="50" stroke="#3F5A33" stroke-width="9" stroke-linecap="round"/>
+            <line x1="50" y1="50" x2="35" y2="82" stroke="#3F5A33" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="8" fill="#D9A45B"/>
+            <g stroke="#D9A45B" stroke-width="1.8" stroke-linecap="round" fill="none">
+              <path d="M 65 35 L 72 30"/><path d="M 68 45 L 76 45"/><path d="M 65 55 L 72 60"/>
+            </g>
+          </svg>
+        </div>
+        <h4>関節が曲げづらい</h4>
+        <p>拘縮など</p>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 28 32 Q 22 25 32 22 Q 36 14 50 16 Q 64 14 68 22 Q 78 25 72 32 Q 78 42 72 50 Q 76 60 64 62 Q 50 65 36 62 Q 24 60 28 50 Q 22 42 28 32 Z" 
+                  fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5"/>
+            <path d="M 38 28 Q 50 32 62 28 M 32 40 Q 45 44 58 40 M 40 52 Q 50 55 60 52" 
+                  fill="none" stroke="#FAF6EC" stroke-width="1.2" opacity="0.6"/>
+            <line x1="50" y1="65" x2="50" y2="86" stroke="#D9A45B" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 2"/>
+            <path d="M 44 80 L 50 86 L 56 80" stroke="#D9A45B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h4>麻痺がある</h4>
+        <p>脳梗塞の後遺症など</p>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="22" r="8" fill="#3F5A33" stroke="#3F5A33" stroke-width="1"/>
+            <path d="M 38 35 L 62 35 L 60 65 L 56 80 L 44 80 L 40 65 Z" fill="#3F5A33" stroke="#3F5A33" stroke-width="1.2"/>
+            <line x1="38" y1="38" x2="28" y2="55" stroke="#3F5A33" stroke-width="3" stroke-linecap="round"/>
+            <line x1="62" y1="38" x2="72" y2="55" stroke="#3F5A33" stroke-width="3" stroke-linecap="round"/>
+            <g stroke="#D9A45B" stroke-width="1.8" stroke-linecap="round" fill="none">
+              <path d="M 14 50 Q 18 47 22 50 Q 26 53 30 50"/>
+              <path d="M 13 60 Q 17 57 21 60 Q 25 63 29 60"/>
+              <path d="M 70 50 Q 74 47 78 50 Q 82 53 86 50"/>
+              <path d="M 71 60 Q 75 57 79 60 Q 83 63 87 60"/>
+            </g>
+          </svg>
+        </div>
+        <h4>パーキンソン病</h4>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 30 78 Q 26 60 28 45 L 32 25 Q 35 20 40 25 L 42 42 L 46 18 Q 50 14 54 18 L 56 40 L 62 22 Q 66 18 68 24 L 68 42 L 72 32 Q 76 30 76 36 L 74 60 Q 70 78 60 82 Z" 
+                  fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5"/>
+            <circle cx="40" cy="38" r="3.5" fill="#D9A45B" opacity="0.95"/>
+            <circle cx="50" cy="32" r="4" fill="#D9A45B"/>
+            <circle cx="60" cy="36" r="3.5" fill="#D9A45B" opacity="0.95"/>
+            <circle cx="68" cy="40" r="3" fill="#D9A45B" opacity="0.85"/>
+            <circle cx="50" cy="55" r="3" fill="#D9A45B" opacity="0.7"/>
+          </svg>
+        </div>
+        <h4>リウマチ</h4>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5" stroke-linejoin="round">
+              <path d="M 38 18 Q 32 14 35 10 Q 40 6 46 10 Q 52 6 56 10 Q 62 14 56 18 L 56 78 Q 62 82 56 86 Q 52 90 46 86 Q 40 90 35 86 Q 32 82 38 78 Z"/>
+            </g>
+            <g fill="#FAF6EC" stroke="#D9A45B" stroke-width="1.5" stroke-linejoin="round">
+              <rect x="26" y="38" width="40" height="9" rx="2" transform="rotate(-6 46 42)"/>
+              <rect x="26" y="50" width="40" height="9" rx="2" transform="rotate(-6 46 54)"/>
+              <rect x="26" y="62" width="40" height="9" rx="2" transform="rotate(-6 46 66)"/>
+            </g>
+            <circle cx="78" cy="45" r="14" fill="#3F5A33"/>
+            <path d="M 72 46 L 76 50 L 84 40" stroke="#FAF6EC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h4>骨折後の後遺症</h4>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5" opacity="0.45">
+              <path d="M 18 20 L 32 20 L 38 30 Q 42 50 38 70 L 36 84 L 22 84 L 20 70 Q 16 50 18 30 Z"/>
+            </g>
+            <g fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5">
+              <path d="M 60 20 L 70 20 L 73 30 Q 75 50 73 70 L 72 84 L 62 84 L 61 70 Q 59 50 60 30 Z"/>
+            </g>
+            <line x1="46" y1="50" x2="56" y2="50" stroke="#D9A45B" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 52 45 L 56 50 L 52 55" stroke="#D9A45B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h4>筋萎縮・筋力の低下</h4>
+      </div>
+
+      <div class="worry-card">
+        <div class="worry-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 18 50 L 50 22 L 82 50 L 82 82 L 18 82 Z" fill="#3F5A33" stroke="#3F5A33" stroke-width="1.5"/>
+            <rect x="42" y="58" width="16" height="24" fill="#FAF6EC" stroke="#FAF6EC" stroke-width="0.8"/>
+            <circle cx="55" cy="70" r="1" fill="#3F5A33"/>
+            <path d="M 50 65 C 47 61 41 61 41 67 C 41 73 50 78 50 78 C 50 78 59 73 59 67 C 59 61 53 61 50 65 Z" fill="#D9A45B"/>
+          </svg>
+        </div>
+        <h4>通院が困難</h4>
+      </div>
     </div>
     <div class="worries-note">
       <strong>医師の同意書が必要です</strong>
@@ -475,7 +649,12 @@
     <p class="section-lead">医療保険適用の訪問マッサージ・訪問鍼灸を、ご自宅で受けていただけます。</p>
 
     <div class="service-block">
-      <div class="service-image"></div>
+      <div class="service-image">
+        <picture>
+          <source srcset="images/service-massage.webp" type="image/webp">
+          <img src="images/service-massage.jpg" alt="訪問マッサージの施術風景" loading="lazy">
+        </picture>
+      </div>
       <div>
         <span class="service-tag">MENU 01</span>
         <h3>訪問マッサージ</h3>
@@ -501,7 +680,50 @@
         </ul>
         <a href="services.html#acupuncture" class="service-link">訪問鍼灸の詳細 →</a>
       </div>
-      <div class="service-image"></div>
+      <div class="service-image" style="background:linear-gradient(135deg,#8FAE7A 0%,#3F5A33 100%);">
+        <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
+          <!-- 装飾的な円形 -->
+          <circle cx="300" cy="240" r="160" fill="rgba(250,246,236,0.08)"/>
+          <circle cx="300" cy="240" r="110" fill="rgba(250,246,236,0.06)"/>
+          <!-- 鍼のシンボル -->
+          <g transform="translate(220 180)">
+            <line x1="0" y1="0" x2="0" y2="120" stroke="#FAF6EC" stroke-width="1.5" opacity="0.85"/>
+            <circle cx="0" cy="-4" r="4" fill="#FAF6EC" opacity="0.85"/>
+          </g>
+          <g transform="translate(260 200)">
+            <line x1="0" y1="0" x2="0" y2="100" stroke="#FAF6EC" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="0" cy="-4" r="3.5" fill="#FAF6EC" opacity="0.7"/>
+          </g>
+          <g transform="translate(300 170)">
+            <line x1="0" y1="0" x2="0" y2="140" stroke="#FAF6EC" stroke-width="2" opacity="1"/>
+            <circle cx="0" cy="-5" r="5" fill="#FAF6EC"/>
+          </g>
+          <g transform="translate(340 200)">
+            <line x1="0" y1="0" x2="0" y2="100" stroke="#FAF6EC" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="0" cy="-4" r="3.5" fill="#FAF6EC" opacity="0.7"/>
+          </g>
+          <g transform="translate(380 180)">
+            <line x1="0" y1="0" x2="0" y2="120" stroke="#FAF6EC" stroke-width="1.5" opacity="0.85"/>
+            <circle cx="0" cy="-4" r="4" fill="#FAF6EC" opacity="0.85"/>
+          </g>
+          <!-- ツボ(円)の表現 -->
+          <g fill="rgba(217,164,91,0.4)">
+            <circle cx="220" cy="320" r="6"/>
+            <circle cx="260" cy="320" r="6"/>
+            <circle cx="300" cy="320" r="8"/>
+            <circle cx="340" cy="320" r="6"/>
+            <circle cx="380" cy="320" r="6"/>
+          </g>
+          <!-- 葉のアクセント -->
+          <g transform="translate(120 360) rotate(-20)" opacity="0.4">
+            <path d="M 0 0 Q 30 -25 25 5 Q 15 25 0 0 Z" fill="#FAF6EC"/>
+          </g>
+          <g transform="translate(460 100) rotate(20)" opacity="0.3">
+            <path d="M 0 0 Q 25 -20 22 8 Q 12 22 0 0 Z" fill="#FAF6EC"/>
+          </g>
+          <text x="300" y="430" text-anchor="middle" fill="#FAF6EC" font-family="serif" font-size="14" letter-spacing="0.2em" opacity="0.85">VISITING ACUPUNCTURE</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -563,6 +785,39 @@
         <div class="flow-num">04</div>
         <h4>施術開始</h4>
         <p>1回の施術時間は約20分。症状により頻度も変わってまいります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff" id="staff">
+  <div class="container">
+    <div class="section-eyebrow">Our Staff</div>
+    <h2 class="section-title">スタッフ紹介</h2>
+    <p class="section-lead">国家資格を保有した経験豊富な施術者が、皆さまのご自宅へお伺いいたします。</p>
+    <div class="staff-photo">
+      <picture>
+        <source srcset="images/team.webp" type="image/webp">
+        <img src="images/team.jpg" alt="リーフ治療院の施術スタッフ" loading="lazy">
+      </picture>
+      <div class="staff-caption">
+        <span class="staff-tag">Specialists</span>
+        <p>全員が国家資格を保有<br>安心のスペシャリスト集団</p>
+      </div>
+    </div>
+    <div class="staff-points">
+      <div class="staff-point">
+        <div class="staff-point-num">国家資格</div>
+        <p>あん摩マッサージ指圧師・はり師・きゅう師の国家資格保有者のみが訪問</p>
+      </div>
+      <div class="staff-point">
+        <div class="staff-point-num">経験豊富</div>
+        <p>豊富な臨床経験を持つスタッフが多数在籍。ご症状に合わせて最適な担当者を</p>
+      </div>
+      <div class="staff-point">
+        <div class="staff-point-num">親身対応</div>
+        <p>患者さまに親身に寄り添う姿勢で、毎日の暮らしをしっかりと支えます</p>
       </div>
     </div>
   </div>
@@ -665,6 +920,7 @@
           <li><a href="index.html">トップ</a></li>
           <li><a href="services.html">施術内容</a></li>
           <li><a href="price.html">料金</a></li>
+          <li><a href="index.html#staff">スタッフ</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
       </div>
