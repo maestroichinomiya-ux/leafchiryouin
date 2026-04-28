@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>リーフ治療院 | 一宮の訪問マッサージ・訪問鍼灸</title>
+<meta name="description" content="愛知県一宮市・名古屋市中川区の訪問マッサージ・訪問鍼灸ならリーフ治療院。国家資格保有の施術者がご自宅へ訪問。医療保険適用、無料体験実施中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+  /* ========== HERO ========== */
+  .hero{
+    position:relative;padding-top:72px;
+    background:var(--cream);
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.05fr 1fr;
+    gap:60px;align-items:center;
+    min-height:calc(100vh - 72px);
+    padding:60px 0;
+  }
+  .hero-copy{position:relative;z-index:2}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:14px;color:var(--green-mid);
+    margin-bottom:20px;letter-spacing:.1em;
+  }
+  .hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--green-mid)}
+  .hero h1{
+    font-family:'Noto Serif JP',serif;font-weight:700;
+    font-size:54px;line-height:1.4;color:var(--green-deep);
+    letter-spacing:.02em;
+    margin-bottom:28px;
+  }
+  .hero h1 .accent{
+    color:var(--green-mid);
+    position:relative;display:inline-block;
+  }
+  .hero h1 .accent::after{
+    content:"";position:absolute;left:0;right:0;bottom:-4px;
+    height:8px;background:var(--green-soft);opacity:.6;
+    z-index:-1;
+  }
+  .hero-lead{
+    font-size:16px;line-height:2;color:var(--ink-soft);
+    margin-bottom:36px;max-width:520px;
+  }
+  .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+  .hero-trust{display:flex;gap:28px;padding-top:28px;border-top:1px dashed var(--line)}
+  .trust-item{font-size:12px;color:var(--ink-soft)}
+  .trust-item strong{
+    display:block;font-family:'Noto Serif JP',serif;
+    font-size:22px;color:var(--green-deep);font-weight:700;
+    letter-spacing:.02em;margin-bottom:2px;
+  }
+  .hero-visual{position:relative}
+  .hero-photo{
+    width:100%;aspect-ratio:4/5;
+    background:linear-gradient(135deg,#7a9462 0%,#3f5a33 100%);
+    border-radius:300px 300px 16px 16px;
+    position:relative;overflow:hidden;
+    box-shadow:0 24px 60px rgba(63,90,51,.22);
+  }
+  .hero-photo::after{
+    content:"院長施術風景の写真";
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  }
+  .hero-badge{
+    position:absolute;top:30px;right:-10px;
+    width:130px;height:130px;
+    background:var(--cream);
+    border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;line-height:1.4;
+    box-shadow:0 12px 28px rgba(63,90,51,.18);
+    border:1px dashed var(--green);
+    transform:rotate(-8deg);
+  }
+  .hero-badge small{font-size:10px;color:var(--green-mid);letter-spacing:.15em;font-family:'Cormorant Garamond',serif}
+  .hero-badge strong{font-family:'Noto Serif JP',serif;font-size:15px;color:var(--green-deep);margin-top:4px;font-weight:700}
+  .hero-badge span{font-size:11px;color:var(--ink-soft);margin-top:4px}
+  .hero-leaf{
+    position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--green);opacity:.4;font-size:120px;
+    bottom:-20px;left:-30px;line-height:1;pointer-events:none;
+  }
+
+  /* ========== WORRIES ========== */
+  .worries{background:var(--cream-deep);padding:100px 0}
+  .worries-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:18px;margin-top:50px;
+  }
+  .worry-card{
+    background:var(--cream);
+    padding:32px 20px;border-radius:20px;
+    text-align:center;
+    border:1px solid var(--line);
+    transition:.3s;
+  }
+  .worry-card:hover{transform:translateY(-4px);border-color:var(--green)}
+  .worry-icon{
+    width:60px;height:60px;margin:0 auto 16px;
+    background:var(--green-soft);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Noto Serif JP',serif;color:var(--green-deep);
+    font-size:22px;font-weight:700;
+  }
+  .worry-card h4{
+    font-family:'Noto Serif JP',serif;font-size:15px;
+    color:var(--green-deep);font-weight:700;letter-spacing:.05em;
+  }
+  .worry-card p{font-size:12px;color:var(--ink-soft);margin-top:8px}
+  .worries-note{
+    margin-top:40px;text-align:center;
+    background:var(--cream);padding:24px;border-radius:12px;
+    border-left:4px solid var(--green-mid);
+    max-width:720px;margin-left:auto;margin-right:auto;
+    font-size:14px;color:var(--ink-soft);
+  }
+  .worries-note strong{color:var(--green-deep);display:block;margin-bottom:4px;font-family:'Noto Serif JP',serif}
+
+  /* ========== REASONS ========== */
+  .reasons{background:var(--cream)}
+  .reasons-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:32px;margin-top:50px;
+  }
+  .reason-card{
+    background:var(--cream-deep);
+    padding:40px 32px;border-radius:24px;
+    position:relative;
+    transition:.3s;
+  }
+  .reason-card:hover{background:#fff;box-shadow:0 12px 32px rgba(63,90,51,.1)}
+  .reason-num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:42px;color:var(--green);
+    line-height:1;margin-bottom:16px;
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .reason-num small{font-size:13px;color:var(--ink-soft);letter-spacing:.15em;font-style:normal;font-family:'Cormorant Garamond',serif}
+  .reason-card h3{
+    font-family:'Noto Serif JP',serif;font-size:19px;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:14px;line-height:1.6;
+  }
+  .reason-card p{font-size:14px;color:var(--ink-soft);line-height:1.9}
+
+  /* ========== SERVICES ========== */
+  .services{background:var(--cream-deep);padding:120px 0}
+  .service-block{
+    display:grid;grid-template-columns:1fr 1.2fr;
+    gap:60px;align-items:center;
+    margin-bottom:80px;
+  }
+  .service-block:last-child{margin-bottom:0}
+  .service-block.reverse{grid-template-columns:1.2fr 1fr}
+  .service-block.reverse .service-image{order:2}
+  .service-image{
+    aspect-ratio:5/4;border-radius:24px;
+    background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);
+    position:relative;overflow:hidden;
+    box-shadow:0 16px 40px rgba(63,90,51,.15);
+  }
+  .service-image::after{
+    content:"施術風景";
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  }
+  .service-tag{
+    display:inline-block;
+    background:var(--green-mid);color:var(--cream);
+    padding:5px 16px;border-radius:999px;
+    font-size:11px;letter-spacing:.2em;
+    margin-bottom:18px;
+  }
+  .service-block h3{
+    font-family:'Noto Serif JP',serif;font-size:32px;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:20px;letter-spacing:.04em;
+  }
+  .service-block p{
+    font-size:15px;color:var(--ink-soft);
+    line-height:2;margin-bottom:20px;
+  }
+  .service-features{list-style:none;display:grid;gap:10px;margin-top:24px}
+  .service-features li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:14px;color:var(--ink);
+  }
+  .service-features li::before{
+    content:"";flex:none;
+    width:18px;height:18px;margin-top:6px;
+    background:var(--green);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+  }
+  .service-link{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--green-mid);font-weight:500;font-size:14px;
+    margin-top:10px;letter-spacing:.04em;
+    transition:.2s;
+  }
+  .service-link:hover{color:var(--green-deep);gap:14px}
+
+  /* ========== PRICE ========== */
+  .price{background:var(--cream)}
+  .price-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;margin-top:50px;
+  }
+  .price-card{
+    padding:40px 28px;border-radius:24px;
+    background:var(--cream-deep);
+    text-align:center;position:relative;
+    border:1px solid var(--line);
+    transition:.3s;
+  }
+  .price-card.featured{
+    background:var(--green-deep);color:var(--cream);
+    transform:translateY(-12px);
+    box-shadow:0 20px 40px rgba(63,90,51,.25);
+    border-color:var(--green-deep);
+  }
+  .price-card.featured .price-amount{color:var(--cream)}
+  .price-card.featured .price-burden{color:rgba(250,246,236,.7)}
+  .price-card.featured .price-target{color:rgba(250,246,236,.75);border-color:rgba(250,246,236,.2)}
+  .price-burden{
+    font-size:13px;color:var(--ink-soft);
+    letter-spacing:.1em;margin-bottom:14px;
+  }
+  .price-amount{
+    font-family:'Noto Serif JP',serif;
+    font-size:38px;color:var(--green-deep);font-weight:700;
+    line-height:1.2;margin-bottom:6px;
+  }
+  .price-amount small{font-size:14px;color:var(--ink-soft);font-weight:400;display:block;margin-top:4px}
+  .price-card.featured .price-amount small{color:rgba(250,246,236,.7)}
+  .price-target{
+    font-size:12px;color:var(--ink-soft);
+    line-height:1.7;margin-top:14px;padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .price-disclaimer{text-align:center;color:var(--ink-soft);font-size:12px;margin-top:30px}
+
+  /* ========== FLOW ========== */
+  .flow{background:var(--green-deep);color:var(--cream);position:relative;overflow:hidden}
+  .flow .section-title{color:var(--cream)}
+  .flow .section-eyebrow{color:var(--green-soft)}
+  .flow .section-lead{color:rgba(250,246,236,.75)}
+  .flow-steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:24px;margin-top:60px;position:relative;
+  }
+  .flow-line{
+    position:absolute;top:35px;left:12%;right:12%;
+    border-top:1px dashed rgba(250,246,236,.3);
+  }
+  .flow-step{text-align:center;position:relative;z-index:2}
+  .flow-num{
+    width:70px;height:70px;margin:0 auto 22px;
+    background:var(--cream);color:var(--green-deep);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;font-weight:600;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+  }
+  .flow-step h4{
+    font-family:'Noto Serif JP',serif;font-size:17px;
+    margin-bottom:10px;letter-spacing:.04em;
+  }
+  .flow-step p{font-size:13px;color:rgba(250,246,236,.75);line-height:1.8}
+
+  /* ========== AREA ========== */
+  .area{background:var(--cream-deep)}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px}
+  .area-card{
+    background:var(--cream);padding:40px;border-radius:24px;
+    border:1px solid var(--line);
+  }
+  .area-card-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+  .area-card-mark{
+    flex:none;width:48px;height:48px;
+  }
+  .area-card h3{
+    font-family:'Noto Serif JP',serif;font-size:22px;
+    color:var(--green-deep);font-weight:700;
+  }
+  .area-card-info{display:grid;gap:12px;margin-bottom:20px}
+  .area-info-row{display:grid;grid-template-columns:80px 1fr;gap:12px;font-size:14px;align-items:start}
+  .area-info-row dt{
+    color:var(--green-mid);font-weight:500;
+    font-family:'Noto Serif JP',serif;font-size:13px;
+    letter-spacing:.08em;
+  }
+  .area-info-row dd{color:var(--ink)}
+  .area-info-row dd a{color:var(--green-deep);font-weight:700;text-decoration:none}
+  .area-map{
+    height:200px;
+    border-radius:12px;display:flex;align-items:center;justify-content:center;
+    color:var(--green-deep);font-size:13px;letter-spacing:.1em;
+    background:radial-gradient(circle at center,var(--green-soft) 30%,var(--cream-deep) 80%);
+  }
+  .area-radius{
+    margin-top:16px;text-align:center;
+    font-size:13px;color:var(--ink-soft);
+  }
+  .area-radius strong{
+    color:var(--green-deep);font-family:'Noto Serif JP',serif;
+    font-size:16px;display:block;margin-bottom:2px;
+  }
+
+  @media(max-width:960px){
+    .hero-inner{grid-template-columns:1fr;gap:40px;padding:40px 0 80px}
+    .hero h1{font-size:34px}
+    .worries-grid{grid-template-columns:repeat(2,1fr)}
+    .reasons-grid{grid-template-columns:1fr;gap:18px}
+    .service-block,.service-block.reverse{grid-template-columns:1fr;gap:30px}
+    .service-block.reverse .service-image{order:0}
+    .service-block h3{font-size:24px}
+    .price-cards{grid-template-columns:1fr;gap:18px}
+    .price-card.featured{transform:none}
+    .flow-steps{grid-template-columns:repeat(2,1fr);gap:30px}
+    .flow-line{display:none}
+    .area-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="リーフ治療院">
+        <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+        <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#6E9159"/>
+        <path d="M 30 22 Q 38 36 40 56" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M 50 20 Q 42 34 40 54" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="current">トップ</a></li>
+        <li><a href="services.html">施術内容</a></li>
+        <li><a href="price.html">料金</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">Visiting Massage &amp; Acupuncture</div>
+      <h1>
+        歩くのが、つらい。<br>
+        その不安に、<br>
+        <span class="accent">寄り添う訪問施術</span>を。
+      </h1>
+      <p class="hero-lead">
+        通院が難しい方のもとへ、国家資格を持った施術者がお伺いします。<br>
+        肩・腰・膝の痛み、関節の拘縮、麻痺の後遺症など、<br>
+        ご自宅でゆっくりと施術を受けていただけます。
+      </p>
+      <div class="hero-cta-group">
+        <a href="tel:0586857739" class="btn-primary">
+          無料体験を申し込む<span>→</span>
+        </a>
+        <a href="#flow" class="btn-secondary">ご利用の流れを見る</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><strong>全員</strong>国家資格保有</div>
+        <div class="trust-item"><strong>16km</strong>訪問対応エリア</div>
+        <div class="trust-item"><strong>無料</strong>体験マッサージ</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo"></div>
+      <div class="hero-badge">
+        <small>FREE TRIAL</small>
+        <strong>無料体験</strong>
+        <span>実施中</span>
+      </div>
+      <div class="hero-leaf">leaf</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORRIES -->
+<section class="worries" id="worries">
+  <div class="container">
+    <div class="section-eyebrow">For your concerns</div>
+    <h2 class="section-title">こんなお悩みは<br class="sp-only">ございませんか?</h2>
+    <p class="section-lead">
+      ひとつでも当てはまる方は、お気軽にご相談ください。<br>
+      訪問マッサージ・訪問鍼灸が、毎日の暮らしを支えます。
+    </p>
+    <div class="worries-grid">
+      <div class="worry-card"><div class="worry-icon">肩</div><h4>肩や首・腰・膝が痛い</h4></div>
+      <div class="worry-card"><div class="worry-icon">関</div><h4>関節が曲げづらい</h4><p>拘縮など</p></div>
+      <div class="worry-card"><div class="worry-icon">麻</div><h4>麻痺がある</h4><p>脳梗塞の後遺症など</p></div>
+      <div class="worry-card"><div class="worry-icon">P</div><h4>パーキンソン病</h4></div>
+      <div class="worry-card"><div class="worry-icon">リ</div><h4>リウマチ</h4></div>
+      <div class="worry-card"><div class="worry-icon">骨</div><h4>骨折後の後遺症</h4></div>
+      <div class="worry-card"><div class="worry-icon">筋</div><h4>筋萎縮・筋力の低下</h4></div>
+      <div class="worry-card"><div class="worry-icon">通</div><h4>通院が困難</h4></div>
+    </div>
+    <div class="worries-note">
+      <strong>医師の同意書が必要です</strong>
+      上記の症状で医療上治療が必要で通院が困難な方が対象となります。同意書は当院でご用意いたします。
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons" id="reasons">
+  <div class="container">
+    <div class="section-eyebrow">Why we are chosen</div>
+    <h2 class="section-title">リーフ治療院が<br class="sp-only">一宮で選ばれる6つの理由</h2>
+    <p class="section-lead">経験・資格・体制すべてにこだわり、患者さまに親身に寄り添う訪問施術をお届けします。</p>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-num">01<small>EXPERIENCE</small></div>
+        <h3>経験年数の長いスタッフばかりなので安心</h3>
+        <p>豊富な臨床経験を持つ施術者が在籍。さまざまな症状に対して、確かな技術と丁寧な対応でサポートいたします。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02<small>SUPPORT</small></div>
+        <h3>営業担当が付くため、お気軽にご相談可能</h3>
+        <p>施術者とは別に専任の営業担当者がサポート。ご家族・ケアマネジャー様からのご相談にも迅速に対応いたします。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03<small>STAFF</small></div>
+        <h3>在籍スタッフ多数!患者様に合った施術者をお選び頂けます</h3>
+        <p>多くの施術者が在籍しているため、患者さまの症状やご希望に合わせて最適な担当者をご提案いたします。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">04<small>SPEED</small></div>
+        <h3>お問合わせに迅速に対応!</h3>
+        <p>お問い合わせいただいてから訪問・施術開始まで、スピード感を持って丁寧に対応いたします。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">05<small>LICENSE</small></div>
+        <h3>全員国家資格保持者のため、安心して施術を受けられます</h3>
+        <p>あん摩マッサージ指圧師、はり師、きゅう師の国家資格を保有した施術者のみが訪問いたします。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">06<small>FREE</small></div>
+        <h3>無料体験マッサージも受けられます</h3>
+        <p>初めての方も安心してご検討いただけるよう、無料の体験マッサージをご用意しています。まずはお気軽にお試しください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-eyebrow">Our Services</div>
+    <h2 class="section-title">施術内容</h2>
+    <p class="section-lead">医療保険適用の訪問マッサージ・訪問鍼灸を、ご自宅で受けていただけます。</p>
+
+    <div class="service-block">
+      <div class="service-image"></div>
+      <div>
+        <span class="service-tag">MENU 01</span>
+        <h3>訪問マッサージ</h3>
+        <p>皮膚に直接刺激を与えることで、皮膚末端から心臓にかけての血液循環やリンパ循環の改善を目指す手技療法です。関節の可動域の運動も取り入れることにより、運動機能の向上をはかり、生活の質も向上します。</p>
+        <ul class="service-features">
+          <li>血液・リンパ循環の改善</li>
+          <li>関節可動域の改善・拘縮予防</li>
+          <li>運動機能の維持・向上</li>
+        </ul>
+        <a href="services.html#massage" class="service-link">訪問マッサージの詳細 →</a>
+      </div>
+    </div>
+
+    <div class="service-block reverse">
+      <div>
+        <span class="service-tag">MENU 02</span>
+        <h3>訪問鍼灸</h3>
+        <p>主に神経痛、リウマチ、腰痛症、五十肩、頚腕症候群、頚椎捻挫後遺症などの慢性的な痛みに関する症状に適応しますが、鍼灸はそのほかの多くの辛い症状や病気にも効果が期待できます。血液循環を良くしたり、免疫細胞の増加・活性化、自律神経を整える働きもあります。</p>
+        <ul class="service-features">
+          <li>慢性痛・神経痛への効果</li>
+          <li>免疫細胞の活性化</li>
+          <li>自律神経のバランス調整</li>
+        </ul>
+        <a href="services.html#acupuncture" class="service-link">訪問鍼灸の詳細 →</a>
+      </div>
+      <div class="service-image"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price" id="price">
+  <div class="container">
+    <div class="section-eyebrow">Price</div>
+    <h2 class="section-title">料金のご案内</h2>
+    <p class="section-lead">
+      医療保険がご利用いただけます。<br>
+      下記は1回あたりの自己負担額の参考価格です。
+    </p>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="price-burden">保険証の負担が無い方</div>
+        <div class="price-amount">無料<small>(障害者医療証・母子家庭・マル福など)</small></div>
+        <div class="price-target">医療証をお持ちの方は自己負担なくご利用いただけます。</div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-burden">保険証の負担が1割の方</div>
+        <div class="price-amount">400円前後<small>1回あたりの自己負担額目安</small></div>
+        <div class="price-target">後期高齢者医療受給者証をお持ちの方など。</div>
+      </div>
+      <div class="price-card">
+        <div class="price-burden">保険証の負担が3割の方</div>
+        <div class="price-amount">1,200円前後<small>1回あたりの自己負担額目安</small></div>
+        <div class="price-target">通常の3割負担の方の参考価格です。</div>
+      </div>
+    </div>
+    <p class="price-disclaimer">※部位数・距離(往療料)により料金は変動します。<a href="price.html" style="color:var(--green-mid);text-decoration:underline;margin-left:6px">料金の詳細はこちら →</a></p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="section-eyebrow">Flow</div>
+    <h2 class="section-title">ご利用までの流れ</h2>
+    <p class="section-lead">お問い合わせから施術開始まで、丁寧にサポートいたします。</p>
+    <div class="flow-steps">
+      <div class="flow-line"></div>
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h4>お問い合わせ・<br>ヒアリング</h4>
+        <p>お電話にてお身体の状況や痛みの具合などを確認させていただき、訪問の日程を決めます。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h4>訪問・<br>無料お試し施術</h4>
+        <p>実際にご自宅へ訪問し、ご本人様の容態を確認。無料お試しマッサージをご体験いただけます。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h4>プラン提案・<br>同意書取得</h4>
+        <p>最適なプランをご提案。ご納得いただけたら医師の同意書取得をお手伝いします。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <h4>施術開始</h4>
+        <p>1回の施術時間は約20分。症状により頻度も変わってまいります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area" id="area">
+  <div class="container">
+    <div class="section-eyebrow">Clinic Information</div>
+    <h2 class="section-title">院案内・訪問エリア</h2>
+    <p class="section-lead">一宮市・名古屋市中川区の2拠点から、半径16km以内のエリアへ訪問いたします。</p>
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="area-card-head">
+          <svg class="area-card-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+            <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#6E9159"/>
+          </svg>
+          <h3>リーフ治療院 一宮</h3>
+        </div>
+        <dl class="area-card-info">
+          <div class="area-info-row"><dt>TEL</dt><dd><a href="tel:0586857739">0586-85-7739</a></dd></div>
+          <div class="area-info-row"><dt>受付時間</dt><dd>9:00〜18:00</dd></div>
+          <div class="area-info-row"><dt>所在地</dt><dd>〒491-0917<br>愛知県一宮市昭和2-2-30</dd></div>
+          <div class="area-info-row"><dt>最寄駅</dt><dd>名鉄尾西線 観音寺駅 徒歩6分</dd></div>
+        </dl>
+        <div class="area-map">[ MAP - 一宮市昭和 ]</div>
+        <div class="area-radius"><strong>半径16km</strong>以内が訪問対象エリアです</div>
+      </div>
+      <div class="area-card">
+        <div class="area-card-head">
+          <svg class="area-card-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+            <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#6E9159"/>
+          </svg>
+          <h3>訪問マッサージ<br>リーフ治療院 中川</h3>
+        </div>
+        <dl class="area-card-info">
+          <div class="area-info-row"><dt>TEL</dt><dd><a href="tel:0523513829">052-351-3829</a></dd></div>
+          <div class="area-info-row"><dt>受付時間</dt><dd>10:00〜18:00<br>日曜定休</dd></div>
+          <div class="area-info-row"><dt>所在地</dt><dd>〒454-0823<br>名古屋市中川区富船町5-1-8 1A</dd></div>
+        </dl>
+        <div class="area-map">[ MAP - 名古屋市中川区 ]</div>
+        <div class="area-radius"><strong>半径16km</strong>以内が訪問対象エリアです</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <h2>まずは無料体験から、<br>お気軽にご相談ください</h2>
+      <p>
+        ご本人さま・ご家族さま・ケアマネジャーさまからのご相談を承っております。<br>
+        通院がご不安な方も、まずはお電話でお気軽にお問い合わせください。
+      </p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-method-label">Ichinomiya Clinic</div>
+          <h4>リーフ治療院 一宮</h4>
+          <a href="tel:0586857739" class="contact-tel">0586-85-7739</a>
+          <div class="contact-hours">受付:9:00〜18:00</div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-label">Nakagawa Clinic</div>
+          <h4>リーフ治療院 中川</h4>
+          <a href="tel:0523513829" class="contact-tel">052-351-3829</a>
+          <div class="contact-hours">受付:10:00〜18:00 / 日曜定休</div>
+        </div>
+      </div>
+      <a href="contact.html" class="contact-form-btn">メールでのお問い合わせはこちら →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:46px;height:46px">
+            <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+            <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#FAF6EC"/>
+            <path d="M 30 22 Q 38 36 40 56" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+            <path d="M 50 20 Q 42 34 40 54" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+          </svg>
+          <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+        </div>
+        <p class="footer-desc">
+          一宮市・名古屋市中川区を中心に、訪問マッサージ・訪問鍼灸を提供しています。<br>
+          国家資格保有の施術者が、患者さまに親身に寄り添います。
+        </p>
+      </div>
+      <div>
+        <h5>サイトマップ</h5>
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="services.html">施術内容</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>お問い合わせ</h5>
+        <ul>
+          <li>一宮:<a href="tel:0586857739">0586-85-7739</a></li>
+          <li>中川:<a href="tel:0523513829">052-351-3829</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© LEAF CHIRYOIN. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:0586857739">一宮 電話する</a>
+  <a href="tel:0523513829">中川 電話する</a>
+</div>
+
+</body>
+</html>

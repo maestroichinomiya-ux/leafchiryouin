@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施術内容 | リーフ治療院 一宮の訪問マッサージ・訪問鍼灸</title>
+<meta name="description" content="リーフ治療院の訪問マッサージ・訪問鍼灸の施術内容を詳しくご紹介。国家資格保有の施術者が、肩・腰・膝の痛みから麻痺・拘縮・神経痛まで、ご自宅で丁寧に施術いたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+  /* ========== ページ固有スタイル ========== */
+  .service-hero{
+    background:var(--cream-deep);
+    padding:80px 0;
+    margin-bottom:0;
+  }
+  .service-hero-grid{
+    display:grid;grid-template-columns:1fr 1.1fr;
+    gap:60px;align-items:center;
+  }
+  .service-tag-large{
+    display:inline-block;
+    background:var(--green-mid);color:var(--cream);
+    padding:6px 18px;border-radius:999px;
+    font-size:11px;letter-spacing:.2em;
+    margin-bottom:20px;
+  }
+  .service-hero h2{
+    font-family:'Noto Serif JP',serif;font-size:40px;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:24px;letter-spacing:.04em;line-height:1.4;
+  }
+  .service-hero h2 small{
+    display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:16px;color:var(--green-mid);font-weight:400;
+    letter-spacing:.1em;margin-bottom:8px;
+  }
+  .service-hero p{
+    font-size:15px;color:var(--ink-soft);line-height:2.1;
+    margin-bottom:24px;
+  }
+  .service-hero-image{
+    aspect-ratio:5/4;border-radius:24px;
+    background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);
+    position:relative;overflow:hidden;
+    box-shadow:0 16px 40px rgba(63,90,51,.18);
+  }
+  .service-hero-image::after{
+    content:attr(data-label);
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.1em;
+  }
+
+  /* セクション分割帯 */
+  .section-divider{background:var(--cream)}
+  .section-divider.dark{background:var(--cream-deep)}
+
+  /* 効果リスト */
+  .effects-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;margin-top:40px;
+  }
+  .effect-card{
+    background:var(--cream);
+    padding:36px 28px;border-radius:20px;
+    border:1px solid var(--line);
+    text-align:center;
+    transition:.3s;
+  }
+  .effect-card:hover{
+    border-color:var(--green);
+    transform:translateY(-4px);
+    box-shadow:0 12px 24px rgba(63,90,51,.08);
+  }
+  .effect-num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:28px;color:var(--green);
+    margin-bottom:10px;line-height:1;
+  }
+  .effect-card h4{
+    font-family:'Noto Serif JP',serif;font-size:18px;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:14px;letter-spacing:.04em;
+  }
+  .effect-card p{
+    font-size:13px;color:var(--ink-soft);line-height:1.9;
+  }
+
+  /* 適応症状 */
+  .conditions{background:var(--cream-deep);padding:90px 0}
+  .condition-tags{
+    display:flex;flex-wrap:wrap;gap:12px;
+    justify-content:center;margin-top:40px;max-width:880px;margin-left:auto;margin-right:auto;
+  }
+  .condition-tag{
+    background:var(--cream);
+    border:1px solid var(--green-soft);
+    color:var(--green-deep);
+    padding:10px 22px;border-radius:999px;
+    font-size:14px;font-weight:500;letter-spacing:.04em;
+    transition:.2s;
+  }
+  .condition-tag:hover{
+    background:var(--green-soft);
+  }
+  .condition-note{
+    margin-top:40px;padding:24px 32px;
+    background:var(--cream);border-radius:16px;
+    border-left:4px solid var(--green-mid);
+    max-width:760px;margin-left:auto;margin-right:auto;
+    font-size:14px;color:var(--ink-soft);line-height:2;
+  }
+  .condition-note strong{
+    display:block;font-family:'Noto Serif JP',serif;
+    color:var(--green-deep);font-size:16px;margin-bottom:6px;
+  }
+
+  /* 施術の流れ(1回あたり) */
+  .session-flow{background:var(--cream)}
+  .session-steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:20px;margin-top:50px;position:relative;
+  }
+  .session-step{
+    background:var(--cream-deep);
+    padding:30px 22px;border-radius:20px;
+    text-align:center;position:relative;
+  }
+  .session-step-num{
+    width:40px;height:40px;margin:0 auto 14px;
+    background:var(--green-deep);color:var(--cream);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;
+  }
+  .session-step h4{
+    font-family:'Noto Serif JP',serif;font-size:15px;
+    color:var(--green-deep);font-weight:700;margin-bottom:8px;
+  }
+  .session-step p{font-size:12px;color:var(--ink-soft);line-height:1.8}
+  .session-meta{
+    margin-top:40px;display:flex;gap:30px;justify-content:center;
+    flex-wrap:wrap;
+  }
+  .session-meta-item{
+    display:flex;align-items:center;gap:14px;
+    background:var(--cream-deep);padding:16px 24px;border-radius:999px;
+    border:1px solid var(--line);
+  }
+  .session-meta-item dt{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--green-mid);font-size:12px;letter-spacing:.1em;
+  }
+  .session-meta-item dd{
+    font-family:'Noto Serif JP',serif;font-weight:700;
+    color:var(--green-deep);font-size:16px;
+  }
+
+  /* 鍼灸の安心ポイント */
+  .safety-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:20px;margin-top:40px;
+  }
+  .safety-item{
+    background:var(--cream);
+    padding:28px;border-radius:16px;
+    border:1px solid var(--line);
+    display:flex;gap:18px;align-items:flex-start;
+  }
+  .safety-icon{
+    flex:none;width:40px;height:40px;
+    background:var(--green-soft);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--green-deep);font-family:'Noto Serif JP',serif;
+    font-weight:700;font-size:16px;
+  }
+  .safety-item h4{
+    font-family:'Noto Serif JP',serif;font-size:15px;
+    color:var(--green-deep);font-weight:700;margin-bottom:6px;
+  }
+  .safety-item p{font-size:13px;color:var(--ink-soft);line-height:1.8}
+
+  /* CTAバナー */
+  .mid-cta{
+    background:var(--green-deep);color:var(--cream);
+    padding:60px 0;text-align:center;
+  }
+  .mid-cta h3{
+    font-family:'Noto Serif JP',serif;font-size:24px;
+    margin-bottom:14px;letter-spacing:.04em;
+  }
+  .mid-cta p{
+    color:rgba(250,246,236,.8);font-size:14px;
+    margin-bottom:28px;
+  }
+  .mid-cta .btn-primary{
+    background:var(--cream);color:var(--green-deep);
+    box-shadow:0 8px 24px rgba(0,0,0,.2);
+  }
+  .mid-cta .btn-primary:hover{background:#fff}
+
+  @media(max-width:960px){
+    .service-hero-grid{grid-template-columns:1fr;gap:30px}
+    .service-hero h2{font-size:26px}
+    .effects-grid{grid-template-columns:1fr}
+    .session-steps{grid-template-columns:repeat(2,1fr)}
+    .safety-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="リーフ治療院">
+        <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+        <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#6E9159"/>
+        <path d="M 30 22 Q 38 36 40 56" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M 50 20 Q 42 34 40 54" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="services.html" class="current">施術内容</a></li>
+        <li><a href="price.html">料金</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+  </div>
+</header>
+
+<!-- PAGE HEAD -->
+<div class="page-head">
+  <div class="page-head-eyebrow">Our Services</div>
+  <h1>施術内容</h1>
+  <p>
+    国家資格保有の施術者が、訪問マッサージ・訪問鍼灸を行います。<br>
+    通院が困難な方のお身体の状態に合わせて、一人ひとり丁寧に施術いたします。
+  </p>
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a><span>›</span>施術内容
+  </div>
+</div>
+
+<!-- ============================================
+     MENU 01: 訪問マッサージ
+     ============================================ -->
+<section class="service-hero">
+  <div class="container service-hero-grid">
+    <div class="service-hero-image" data-label="訪問マッサージ施術風景"></div>
+    <div>
+      <span class="service-tag-large">MENU 01</span>
+      <h2>
+        <small>Visiting Massage Therapy</small>
+        訪問マッサージ
+      </h2>
+      <p>
+        皮膚に直接刺激を与えることで、皮膚末端から心臓にかけての血液循環やリンパ循環の改善を目指す手技療法です。<br>
+        関節の可動域の運動も取り入れることにより、運動機能の向上をはかり、生活の質も向上します。
+      </p>
+      <p>
+        ご自宅という慣れた環境で、ご本人さまのペースに合わせてゆっくりと施術を受けていただけるのが、訪問マッサージの大きな特長です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-divider">
+  <div class="container">
+    <div class="section-eyebrow">Effects</div>
+    <h2 class="section-title">期待できる効果</h2>
+    <div class="effects-grid">
+      <div class="effect-card">
+        <div class="effect-num">01</div>
+        <h4>血液・リンパ循環の改善</h4>
+        <p>皮膚末端から心臓にかけての血液循環やリンパの流れを促進し、むくみや冷え、だるさなどの改善が期待できます。</p>
+      </div>
+      <div class="effect-card">
+        <div class="effect-num">02</div>
+        <h4>関節可動域の改善</h4>
+        <p>関節の可動域運動を取り入れることで、拘縮の予防・改善を目指します。日常生活の動作がしやすくなります。</p>
+      </div>
+      <div class="effect-card">
+        <div class="effect-num">03</div>
+        <h4>運動機能の維持・向上</h4>
+        <p>筋力の低下や麻痺がある方も、施術を継続することで運動機能の維持・向上をはかり、生活の質の向上を目指します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="session-flow">
+  <div class="container">
+    <div class="section-eyebrow">Session Flow</div>
+    <h2 class="section-title">1回の施術の流れ</h2>
+    <p class="section-lead">1回あたりの施術時間は約20分。症状によって頻度も変わってまいります。</p>
+    <div class="session-steps">
+      <div class="session-step">
+        <div class="session-step-num">1</div>
+        <h4>体調確認</h4>
+        <p>その日の体調・痛みの場所をお伺いします。</p>
+      </div>
+      <div class="session-step">
+        <div class="session-step-num">2</div>
+        <h4>マッサージ施術</h4>
+        <p>症状に合わせて手技で丁寧に施術します。</p>
+      </div>
+      <div class="session-step">
+        <div class="session-step-num">3</div>
+        <h4>関節運動</h4>
+        <p>関節可動域の運動で機能改善を促します。</p>
+      </div>
+      <div class="session-step">
+        <div class="session-step-num">4</div>
+        <h4>状態確認</h4>
+        <p>施術後の状態を確認し、次回の予定を調整。</p>
+      </div>
+    </div>
+    <dl class="session-meta">
+      <div class="session-meta-item"><dt>TIME</dt><dd>約20分 / 回</dd></div>
+      <div class="session-meta-item"><dt>FREQUENCY</dt><dd>症状により調整</dd></div>
+      <div class="session-meta-item"><dt>INSURANCE</dt><dd>医療保険適用</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<section class="mid-cta">
+  <div class="container">
+    <h3>まずは無料体験から</h3>
+    <p>初めての方は無料の体験マッサージをお試しいただけます</p>
+    <a href="tel:0586857739" class="btn-primary">お電話でのお申込み →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     MENU 02: 訪問鍼灸
+     ============================================ -->
+<section class="service-hero" style="background:var(--cream)">
+  <div class="container service-hero-grid">
+    <div>
+      <span class="service-tag-large">MENU 02</span>
+      <h2>
+        <small>Visiting Acupuncture &amp; Moxibustion</small>
+        訪問鍼灸
+      </h2>
+      <p>
+        主に神経痛、リウマチ、腰痛症、五十肩、頚腕症候群、頚椎捻挫後遺症などの慢性的な痛みに関する症状に適応しますが、鍼灸はそのほかの多くの辛い症状や病気にも効果が期待できます。
+      </p>
+      <p>
+        一般にはあまり知られていませんが、鍼灸には血液循環を良くしたり、免疫細胞の増加・活性化に作用があります。また、内臓の働きを調節する自律神経を整え、身体の持つ恒常性維持機能を高める働きもあります。
+      </p>
+    </div>
+    <div class="service-hero-image" data-label="訪問鍼灸施術風景"></div>
+  </div>
+</section>
+
+<section class="section-divider dark">
+  <div class="container">
+    <div class="section-eyebrow">Effects</div>
+    <h2 class="section-title">期待できる効果</h2>
+    <div class="effects-grid">
+      <div class="effect-card">
+        <div class="effect-num">01</div>
+        <h4>慢性痛・神経痛への効果</h4>
+        <p>神経痛、リウマチ、腰痛、五十肩、頚腕症候群など、慢性的な痛みに対して効果が期待できます。</p>
+      </div>
+      <div class="effect-card">
+        <div class="effect-num">02</div>
+        <h4>免疫細胞の活性化</h4>
+        <p>鍼灸刺激により、免疫細胞の増加・活性化に作用。身体の持つ自然治癒力を高めることが期待できます。</p>
+      </div>
+      <div class="effect-card">
+        <div class="effect-num">03</div>
+        <h4>自律神経のバランス調整</h4>
+        <p>内臓の働きを調節する自律神経を整え、恒常性維持機能を高めます。不眠や食欲不振などの不調にも。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="conditions">
+  <div class="container">
+    <div class="section-eyebrow">Indications</div>
+    <h2 class="section-title">こんな症状に</h2>
+    <p class="section-lead">下記の症状で医療上治療が必要で、通院が困難な方が対象となります。</p>
+    <div class="condition-tags">
+      <span class="condition-tag">肩・首の痛み</span>
+      <span class="condition-tag">腰の痛み</span>
+      <span class="condition-tag">膝の痛み</span>
+      <span class="condition-tag">関節拘縮(関節が曲げづらい)</span>
+      <span class="condition-tag">麻痺(脳梗塞の後遺症など)</span>
+      <span class="condition-tag">パーキンソン病</span>
+      <span class="condition-tag">リウマチ</span>
+      <span class="condition-tag">骨折後の後遺症</span>
+      <span class="condition-tag">筋萎縮</span>
+      <span class="condition-tag">筋力の低下</span>
+      <span class="condition-tag">五十肩</span>
+      <span class="condition-tag">頚腕症候群</span>
+      <span class="condition-tag">頚椎捻挫後遺症</span>
+      <span class="condition-tag">神経痛</span>
+    </div>
+    <div class="condition-note">
+      <strong>医師の同意書が必要です</strong>
+      訪問マッサージ・訪問鍼灸を医療保険適用で受けるには、医師の同意書が必要となります。同意書は当院でご用意いたします。診断していただける病院のご紹介もしております。お気軽にご相談ください。
+    </div>
+  </div>
+</section>
+
+<section class="section-divider">
+  <div class="container container-narrow">
+    <div class="section-eyebrow">Safety</div>
+    <h2 class="section-title">鍼灸の安心ポイント</h2>
+    <div class="safety-grid">
+      <div class="safety-item">
+        <div class="safety-icon">資</div>
+        <div>
+          <h4>国家資格保有者が施術</h4>
+          <p>はり師・きゅう師の国家資格を保有した施術者のみが訪問・施術いたします。</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">針</div>
+        <div>
+          <h4>使い捨て鍼を使用</h4>
+          <p>衛生管理を徹底し、使い捨ての鍼を使用しています。安心して施術を受けていただけます。</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">細</div>
+        <div>
+          <h4>髪の毛ほどの細さ</h4>
+          <p>使用する鍼は髪の毛ほどの細さで、痛みはほとんど感じません。</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">合</div>
+        <div>
+          <h4>マッサージとの併用も可能</h4>
+          <p>訪問マッサージとの併用施術も可能です。お身体の状態に合わせてご提案いたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta">
+  <div class="container">
+    <div class="contact-inner">
+      <h2>まずは無料体験から、<br>お気軽にご相談ください</h2>
+      <p>
+        ご本人さま・ご家族さま・ケアマネジャーさまからのご相談を承っております。<br>
+        通院がご不安な方も、まずはお電話でお気軽にお問い合わせください。
+      </p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-method-label">Ichinomiya Clinic</div>
+          <h4>リーフ治療院 一宮</h4>
+          <a href="tel:0586857739" class="contact-tel">0586-85-7739</a>
+          <div class="contact-hours">受付:9:00〜18:00</div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-label">Nakagawa Clinic</div>
+          <h4>リーフ治療院 中川</h4>
+          <a href="tel:0523513829" class="contact-tel">052-351-3829</a>
+          <div class="contact-hours">受付:10:00〜18:00 / 日曜定休</div>
+        </div>
+      </div>
+      <a href="contact.html" class="contact-form-btn">メールでのお問い合わせはこちら →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:46px;height:46px">
+            <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+            <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#FAF6EC"/>
+            <path d="M 30 22 Q 38 36 40 56" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+            <path d="M 50 20 Q 42 34 40 54" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+          </svg>
+          <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+        </div>
+        <p class="footer-desc">
+          一宮市・名古屋市中川区を中心に、訪問マッサージ・訪問鍼灸を提供しています。<br>
+          国家資格保有の施術者が、患者さまに親身に寄り添います。
+        </p>
+      </div>
+      <div>
+        <h5>サイトマップ</h5>
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="services.html">施術内容</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>お問い合わせ</h5>
+        <ul>
+          <li>一宮:<a href="tel:0586857739">0586-85-7739</a></li>
+          <li>中川:<a href="tel:0523513829">052-351-3829</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© LEAF CHIRYOIN. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:0586857739">一宮 電話する</a>
+  <a href="tel:0523513829">中川 電話する</a>
+</div>
+
+</body>
+</html>

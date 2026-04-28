@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>料金 | リーフ治療院 一宮の訪問マッサージ・訪問鍼灸</title>
+<meta name="description" content="リーフ治療院の訪問マッサージ・訪問鍼灸の料金表です。医療保険が適用されるため、自己負担は1回400円前後(1割負担の方)から。距離・部位数・負担割合別に詳しくご案内します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+  /* ========== ページ固有スタイル ========== */
+  .price-overview{background:var(--cream-deep);padding:80px 0}
+  .price-overview-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .po-card{
+    padding:40px 28px;border-radius:24px;
+    background:var(--cream);
+    text-align:center;position:relative;
+    border:1px solid var(--line);
+    transition:.3s;
+  }
+  .po-card.featured{
+    background:var(--green-deep);color:var(--cream);
+    transform:translateY(-12px);
+    box-shadow:0 20px 40px rgba(63,90,51,.25);
+    border-color:var(--green-deep);
+  }
+  .po-card.featured .price-amount{color:var(--cream)}
+  .po-card.featured .price-burden{color:rgba(250,246,236,.7)}
+  .po-card.featured .price-target{color:rgba(250,246,236,.75);border-color:rgba(250,246,236,.2)}
+  .price-burden{
+    font-size:13px;color:var(--ink-soft);
+    letter-spacing:.1em;margin-bottom:14px;
+  }
+  .price-amount{
+    font-family:'Noto Serif JP',serif;
+    font-size:36px;color:var(--green-deep);font-weight:700;
+    line-height:1.2;margin-bottom:6px;
+  }
+  .price-amount small{font-size:13px;color:var(--ink-soft);font-weight:400;display:block;margin-top:4px}
+  .po-card.featured .price-amount small{color:rgba(250,246,236,.7)}
+  .price-target{
+    font-size:12px;color:var(--ink-soft);
+    line-height:1.7;margin-top:14px;padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+
+  /* 保険診療セクション */
+  .insurance-info{background:var(--cream)}
+  .insurance-tag{
+    display:inline-block;
+    background:var(--green-mid);color:var(--cream);
+    padding:6px 18px;border-radius:999px;
+    font-size:11px;letter-spacing:.2em;
+    margin-bottom:18px;
+  }
+  .price-table-wrap{
+    margin-top:50px;
+    background:var(--cream);
+    border-radius:24px;
+    padding:40px;
+    border:1px solid var(--line);
+    overflow-x:auto;
+  }
+  .price-table-wrap.dark{background:var(--cream-deep)}
+  .price-table-title{
+    display:flex;align-items:center;gap:16px;
+    margin-bottom:24px;
+  }
+  .price-table-title-mark{
+    width:8px;height:32px;
+    background:var(--green-mid);
+    border-radius:4px;
+  }
+  .price-table-title h3{
+    font-family:'Noto Serif JP',serif;font-size:22px;
+    color:var(--green-deep);font-weight:700;letter-spacing:.04em;
+  }
+  table.price-table{
+    width:100%;border-collapse:collapse;
+    font-size:13px;min-width:680px;
+  }
+  table.price-table th,
+  table.price-table td{
+    padding:12px 10px;text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  table.price-table thead th{
+    background:var(--green-deep);color:var(--cream);
+    font-weight:500;letter-spacing:.04em;font-size:12px;
+    border-bottom:none;
+  }
+  table.price-table thead th:first-child{border-top-left-radius:8px}
+  table.price-table thead th:last-child{border-top-right-radius:8px}
+  table.price-table tbody th{
+    background:var(--cream-deep);
+    color:var(--green-deep);font-weight:500;
+    font-family:'Noto Serif JP',serif;font-size:13px;
+    text-align:center;
+  }
+  .price-table-wrap.dark table.price-table tbody th{background:var(--cream)}
+  table.price-table tbody td{
+    background:var(--cream);color:var(--ink);
+  }
+  .price-table-wrap.dark table.price-table tbody td{background:var(--cream-deep)}
+  table.price-table .grouped-row th{
+    background:var(--green-soft);color:var(--green-deep);
+    font-weight:700;
+  }
+  table.price-table tbody td strong{
+    color:var(--green-deep);font-weight:700;
+  }
+  .table-note{
+    margin-top:20px;font-size:12px;color:var(--ink-soft);
+    line-height:1.8;padding-left:8px;
+  }
+  .table-note span{color:var(--green-mid);font-weight:700}
+
+  /* 部位表 */
+  .body-parts{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    gap:14px;margin-top:24px;
+  }
+  .body-part-card{
+    background:var(--cream);
+    padding:20px 14px;border-radius:14px;
+    border:1px solid var(--line);
+    text-align:center;
+  }
+  .body-part-num{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--green-mid);font-size:18px;font-style:italic;
+    margin-bottom:4px;
+  }
+  .body-part-card h4{
+    font-family:'Noto Serif JP',serif;font-size:13px;
+    color:var(--green-deep);font-weight:700;margin-bottom:6px;
+  }
+  .body-part-fee{
+    font-size:11px;color:var(--ink-soft);
+  }
+  .body-part-fee strong{color:var(--green-deep)}
+
+  /* 利用例 */
+  .example-section{background:var(--cream-deep)}
+  .example-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:24px;margin-top:50px;
+  }
+  .example-card{
+    background:var(--cream);
+    padding:36px 32px;border-radius:24px;
+    border:1px solid var(--line);
+  }
+  .example-tag{
+    display:inline-block;
+    background:var(--cream-deep);color:var(--green-deep);
+    padding:4px 14px;border-radius:999px;
+    font-size:11px;letter-spacing:.1em;
+    margin-bottom:14px;
+    border:1px solid var(--green-soft);
+  }
+  .example-card h4{
+    font-family:'Noto Serif JP',serif;font-size:18px;
+    color:var(--green-deep);font-weight:700;
+    margin-bottom:18px;line-height:1.6;
+  }
+  .example-detail{
+    background:var(--cream-deep);padding:18px 22px;
+    border-radius:12px;font-size:13px;color:var(--ink-soft);
+    line-height:1.9;margin-bottom:18px;
+  }
+  .example-detail dl{display:grid;gap:6px}
+  .example-detail dl div{display:flex;justify-content:space-between}
+  .example-detail dt{color:var(--ink-soft)}
+  .example-detail dd{color:var(--ink);font-weight:500}
+  .example-result{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding-top:14px;border-top:1px dashed var(--line);
+  }
+  .example-result-label{font-size:13px;color:var(--ink-soft)}
+  .example-result-amount{
+    font-family:'Noto Serif JP',serif;font-size:26px;
+    color:var(--green-deep);font-weight:700;
+  }
+  .example-result-amount small{font-size:14px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+
+  /* FAQ */
+  .faq-section{background:var(--cream)}
+  .faq-list{margin-top:40px;display:grid;gap:14px;max-width:880px;margin-left:auto;margin-right:auto}
+  .faq-item{
+    background:var(--cream-deep);
+    border-radius:16px;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .faq-q{
+    padding:20px 28px;cursor:pointer;
+    display:flex;gap:16px;align-items:center;
+    font-family:'Noto Serif JP',serif;font-size:15px;
+    color:var(--green-deep);font-weight:700;
+    transition:.2s;
+  }
+  .faq-q:hover{background:var(--cream)}
+  .faq-q-mark{
+    flex:none;width:28px;height:28px;
+    background:var(--green-mid);color:var(--cream);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:14px;
+  }
+  .faq-q-arrow{margin-left:auto;color:var(--green-mid);transition:.3s;font-size:18px}
+  .faq-item.open .faq-q-arrow{transform:rotate(180deg)}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:.4s;
+    padding:0 28px 0 72px;
+  }
+  .faq-item.open .faq-a{max-height:200px;padding:0 28px 22px 72px}
+  .faq-a p{
+    font-size:14px;color:var(--ink-soft);
+    line-height:1.9;
+  }
+
+  /* MID NOTICE */
+  .free-notice{
+    background:var(--green-deep);color:var(--cream);
+    padding:50px 0;text-align:center;
+  }
+  .free-notice h3{
+    font-family:'Noto Serif JP',serif;font-size:24px;
+    margin-bottom:8px;letter-spacing:.04em;
+  }
+  .free-notice p{color:rgba(250,246,236,.8);font-size:14px}
+
+  @media(max-width:960px){
+    .price-overview-cards{grid-template-columns:1fr;gap:16px}
+    .po-card.featured{transform:none}
+    .price-table-wrap{padding:24px 18px}
+    .body-parts{grid-template-columns:repeat(2,1fr)}
+    .example-grid{grid-template-columns:1fr}
+    .faq-q{padding:16px 20px;font-size:14px}
+    .faq-a{padding:0 20px 0 56px}
+    .faq-item.open .faq-a{padding:0 20px 18px 56px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="リーフ治療院">
+        <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+        <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#6E9159"/>
+        <path d="M 30 22 Q 38 36 40 56" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M 50 20 Q 42 34 40 54" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="services.html">施術内容</a></li>
+        <li><a href="price.html" class="current">料金</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+  </div>
+</header>
+
+<!-- PAGE HEAD -->
+<div class="page-head">
+  <div class="page-head-eyebrow">Price</div>
+  <h1>料金のご案内</h1>
+  <p>
+    医療保険がご利用いただけます。<br>
+    保険証の負担割合により、1回あたりの自己負担額が異なります。
+  </p>
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a><span>›</span>料金
+  </div>
+</div>
+
+<!-- 料金概要(自己負担額の目安) -->
+<section class="price-overview">
+  <div class="container">
+    <div class="section-eyebrow">At a glance</div>
+    <h2 class="section-title">自己負担額の目安</h2>
+    <p class="section-lead">1回あたりの参考価格です。詳細は下の料金表をご確認ください。</p>
+    <div class="price-overview-cards">
+      <div class="po-card">
+        <div class="price-burden">保険証の負担が無い方</div>
+        <div class="price-amount">無料<small>(障害者医療証・母子家庭・マル福など)</small></div>
+        <div class="price-target">医療証をお持ちの方は自己負担なくご利用いただけます。</div>
+      </div>
+      <div class="po-card featured">
+        <div class="price-burden">保険証の負担が1割の方</div>
+        <div class="price-amount">400円前後<small>1回あたりの自己負担額目安</small></div>
+        <div class="price-target">後期高齢者医療受給者証をお持ちの方など。</div>
+      </div>
+      <div class="po-card">
+        <div class="price-burden">保険証の負担が3割の方</div>
+        <div class="price-amount">1,200円前後<small>1回あたりの自己負担額目安</small></div>
+        <div class="price-target">通常の3割負担の方の参考価格です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     訪問マッサージ 料金表
+     ============================================ -->
+<section class="insurance-info">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="insurance-tag">保険診療</span>
+    </div>
+    <div class="section-eyebrow">Visiting Massage</div>
+    <h2 class="section-title">訪問マッサージ 料金表</h2>
+    <p class="section-lead">医療保険がご利用いただけます。距離・部位数・負担割合により料金が変動します。</p>
+
+    <!-- 部位表 -->
+    <div class="price-table-wrap">
+      <div class="price-table-title">
+        <div class="price-table-title-mark"></div>
+        <h3>部位表(往療料)</h3>
+      </div>
+      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:8px">施術部位の数(部位数)に応じて、施術料が決まります。</p>
+      <div class="body-parts">
+        <div class="body-part-card">
+          <div class="body-part-num">1部位</div>
+          <h4>1部位</h4>
+          <div class="body-part-fee"><strong>(350円)</strong></div>
+        </div>
+        <div class="body-part-card">
+          <div class="body-part-num">2部位</div>
+          <h4>2部位</h4>
+          <div class="body-part-fee"><strong>(700円)</strong></div>
+        </div>
+        <div class="body-part-card">
+          <div class="body-part-num">3部位</div>
+          <h4>3部位</h4>
+          <div class="body-part-fee"><strong>(1,050円)</strong></div>
+        </div>
+        <div class="body-part-card">
+          <div class="body-part-num">4部位</div>
+          <h4>4部位</h4>
+          <div class="body-part-fee"><strong>(1,400円)</strong></div>
+        </div>
+        <div class="body-part-card">
+          <div class="body-part-num">5部位</div>
+          <h4>5部位</h4>
+          <div class="body-part-fee"><strong>(1,750円)</strong></div>
+        </div>
+      </div>
+      <p class="table-note"><span>※</span>カッコ内は施術料の目安です。</p>
+    </div>
+
+    <!-- 4kmまでの料金表 -->
+    <div class="price-table-wrap dark">
+      <div class="price-table-title">
+        <div class="price-table-title-mark"></div>
+        <h3>ご自宅への距離 4kmまで(往療料 2,300円)</h3>
+      </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>1部位</th>
+            <th>2部位</th>
+            <th>3部位</th>
+            <th>4部位</th>
+            <th>5部位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>施術料 + 往療料</th>
+            <td>2,650円</td><td>3,000円</td><td>3,350円</td><td>3,700円</td><td>4,050円</td>
+          </tr>
+          <tr>
+            <th>1割負担</th>
+            <td><strong>265円</strong></td><td><strong>300円</strong></td><td><strong>335円</strong></td><td><strong>370円</strong></td><td><strong>405円</strong></td>
+          </tr>
+          <tr>
+            <th>2割負担</th>
+            <td>530円</td><td>600円</td><td>670円</td><td>740円</td><td>810円</td>
+          </tr>
+          <tr>
+            <th>3割負担</th>
+            <td>795円</td><td>900円</td><td>1,005円</td><td>1,110円</td><td>1,215円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4km以上の料金表 -->
+    <div class="price-table-wrap">
+      <div class="price-table-title">
+        <div class="price-table-title-mark"></div>
+        <h3>ご自宅への距離 4km以上(往療料 2,700円)</h3>
+      </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>1部位</th>
+            <th>2部位</th>
+            <th>3部位</th>
+            <th>4部位</th>
+            <th>5部位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>施術料 + 往療料</th>
+            <td>3,050円</td><td>3,400円</td><td>3,750円</td><td>4,100円</td><td>4,450円</td>
+          </tr>
+          <tr>
+            <th>1割負担</th>
+            <td><strong>305円</strong></td><td><strong>340円</strong></td><td><strong>375円</strong></td><td><strong>410円</strong></td><td><strong>445円</strong></td>
+          </tr>
+          <tr>
+            <th>2割負担</th>
+            <td>610円</td><td>680円</td><td>750円</td><td>820円</td><td>890円</td>
+          </tr>
+          <tr>
+            <th>3割負担</th>
+            <td>915円</td><td>1,020円</td><td>1,125円</td><td>1,230円</td><td>1,335円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 無料アピール -->
+<section class="free-notice">
+  <div class="container">
+    <h3>保険証の負担が無い方は自己負担なし</h3>
+    <p>障害者医療証・母子家庭・マル福などをお持ちの方は無料でご利用いただけます</p>
+  </div>
+</section>
+
+<!-- ============================================
+     訪問鍼灸 料金表
+     ============================================ -->
+<section class="insurance-info" style="background:var(--cream-deep)">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="insurance-tag">保険診療</span>
+    </div>
+    <div class="section-eyebrow">Visiting Acupuncture</div>
+    <h2 class="section-title">訪問鍼灸 料金表</h2>
+    <p class="section-lead">マッサージとの併用も可能です。併用の場合、追加負担はかかりません。</p>
+
+    <div class="price-table-wrap">
+      <div class="price-table-title">
+        <div class="price-table-title-mark"></div>
+        <h3>訪問鍼灸 料金表</h3>
+      </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>2回目以降<br>(1,550円)</th>
+            <th>マッサージ併用<br>(0円)</th>
+            <th>4kmまで<br>(2,300円)</th>
+            <th>4km以上<br>(2,700円)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1割負担</th>
+            <td>2回目以降 (1,550円)</td>
+            <td><strong>0円</strong></td>
+            <td><strong>385円</strong></td>
+            <td><strong>425円</strong></td>
+          </tr>
+          <tr>
+            <th>2割負担</th>
+            <td>2回目以降 (1,550円)</td>
+            <td>310円</td>
+            <td>770円</td>
+            <td>850円</td>
+          </tr>
+          <tr>
+            <th>3割負担</th>
+            <td>2回目以降 (1,550円)</td>
+            <td>465円</td>
+            <td>1,155円</td>
+            <td>1,275円</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note"><span>※</span>マッサージ併用の場合、訪問鍼灸の往療料はかかりません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 利用例 -->
+<section class="example-section">
+  <div class="container">
+    <div class="section-eyebrow">Cost Example</div>
+    <h2 class="section-title">ご利用例</h2>
+    <p class="section-lead">実際にご利用いただいた場合の料金イメージをご紹介します。</p>
+    <div class="example-grid">
+      <div class="example-card">
+        <div class="example-tag">CASE 01</div>
+        <h4>後期高齢者医療(1割負担)で<br>訪問マッサージを受ける場合</h4>
+        <div class="example-detail">
+          <dl>
+            <div><dt>距離</dt><dd>ご自宅まで4km以内</dd></div>
+            <div><dt>施術部位</dt><dd>2部位(腰・膝)</dd></div>
+            <div><dt>負担割合</dt><dd>1割</dd></div>
+          </dl>
+        </div>
+        <div class="example-result">
+          <span class="example-result-label">1回あたりの自己負担額</span>
+          <span class="example-result-amount">300円<small>/ 回</small></span>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-tag">CASE 02</div>
+        <h4>3割負担で訪問マッサージと<br>訪問鍼灸を併用する場合</h4>
+        <div class="example-detail">
+          <dl>
+            <div><dt>距離</dt><dd>ご自宅まで4km以内</dd></div>
+            <div><dt>施術部位</dt><dd>3部位(肩・腰・膝)</dd></div>
+            <div><dt>負担割合</dt><dd>3割</dd></div>
+            <div><dt>鍼灸併用</dt><dd>あり</dd></div>
+          </dl>
+        </div>
+        <div class="example-result">
+          <span class="example-result-label">1回あたりの自己負担額</span>
+          <span class="example-result-amount">1,470円<small>/ 回</small></span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:30px;font-size:12px;color:var(--ink-soft)">
+      ※あくまで参考価格です。詳細はお問い合わせください。
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">料金に関するよくあるご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q-mark">Q</div>
+          <span>医療保険は本当に使えますか?</span>
+          <div class="faq-q-arrow">▼</div>
+        </div>
+        <div class="faq-a">
+          <p>はい、医師の同意書があれば医療保険を使用して訪問マッサージ・訪問鍼灸を受けていただけます。同意書取得は当院でお手伝いいたしますので、ご安心ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q-mark">Q</div>
+          <span>同意書を書いてくれる病院がないのですが…</span>
+          <div class="faq-q-arrow">▼</div>
+        </div>
+        <div class="faq-a">
+          <p>診断していただける病院のご紹介もしております。お気軽にご相談ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q-mark">Q</div>
+          <span>支払い方法は?</span>
+          <div class="faq-q-arrow">▼</div>
+        </div>
+        <div class="faq-a">
+          <p>月末締めで翌月にご請求書をお渡しいたします。詳しいお支払い方法はお気軽にお問い合わせください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q-mark">Q</div>
+          <span>無料体験は本当に無料ですか?</span>
+          <div class="faq-q-arrow">▼</div>
+        </div>
+        <div class="faq-a">
+          <p>はい、初めての方には無料の体験マッサージをご用意しております。ご納得いただいてからご契約ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q-mark">Q</div>
+          <span>距離4km以上はどこから測りますか?</span>
+          <div class="faq-q-arrow">▼</div>
+        </div>
+        <div class="faq-a">
+          <p>各院(リーフ治療院 一宮 / 中川)からご自宅までの直線距離で計算いたします。詳しくはお問い合わせください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta">
+  <div class="container">
+    <div class="contact-inner">
+      <h2>料金について不明な点は<br>お気軽にお問い合わせください</h2>
+      <p>
+        個別の症状・ご利用条件に応じた具体的な料金は、お電話でわかりやすくご案内いたします。<br>
+        ご家族さま・ケアマネジャーさまからのご相談も承っております。
+      </p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-method-label">Ichinomiya Clinic</div>
+          <h4>リーフ治療院 一宮</h4>
+          <a href="tel:0586857739" class="contact-tel">0586-85-7739</a>
+          <div class="contact-hours">受付:9:00〜18:00</div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-label">Nakagawa Clinic</div>
+          <h4>リーフ治療院 中川</h4>
+          <a href="tel:0523513829" class="contact-tel">052-351-3829</a>
+          <div class="contact-hours">受付:10:00〜18:00 / 日曜定休</div>
+        </div>
+      </div>
+      <a href="contact.html" class="contact-form-btn">メールでのお問い合わせはこちら →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:46px;height:46px">
+            <path d="M 36 60 Q 14 50 16 28 Q 22 14 38 18 Q 50 26 46 44 Q 42 56 36 60 Z" fill="#C7D6B7" opacity="0.95"/>
+            <path d="M 44 58 Q 66 48 64 26 Q 58 12 42 16 Q 30 24 34 42 Q 38 54 44 58 Z" fill="#FAF6EC"/>
+            <path d="M 30 22 Q 38 36 40 56" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+            <path d="M 50 20 Q 42 34 40 54" stroke="#3F5A33" stroke-width="1" fill="none" opacity="0.5"/>
+          </svg>
+          <div class="logo-text">リーフ治療院<small>LEAF CHIRYOIN</small></div>
+        </div>
+        <p class="footer-desc">
+          一宮市・名古屋市中川区を中心に、訪問マッサージ・訪問鍼灸を提供しています。<br>
+          国家資格保有の施術者が、患者さまに親身に寄り添います。
+        </p>
+      </div>
+      <div>
+        <h5>サイトマップ</h5>
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="services.html">施術内容</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>お問い合わせ</h5>
+        <ul>
+          <li>一宮:<a href="tel:0586857739">0586-85-7739</a></li>
+          <li>中川:<a href="tel:0523513829">052-351-3829</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© LEAF CHIRYOIN. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:0586857739">一宮 電話する</a>
+  <a href="tel:0523513829">中川 電話する</a>
+</div>
+
+</body>
+</html>
