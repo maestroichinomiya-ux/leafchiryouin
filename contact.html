@@ -253,15 +253,42 @@
   }
 
   @media(max-width:960px){
-    .contact-tel-grid{grid-template-columns:1fr}
-    .ct-tel{font-size:28px}
-    .form-wrap{padding:30px 22px}
+    .contact-tel-section{padding:40px 0}
+    .contact-tel-grid{grid-template-columns:1fr;gap:14px}
+    .ct-card{padding:26px 22px;border-radius:18px}
+    .ct-card h3{font-size:15px}
+    .ct-tel{font-size:26px}
+    .ct-hours{font-size:12px}
+    .ct-address{font-size:11px}
+    .or-divider{margin:36px auto 0;font-size:12px}
+    .form-section{padding:50px 0}
+    .form-intro h2{font-size:20px;line-height:1.5}
+    .form-intro p{font-size:13px}
+    .form-wrap{padding:28px 18px;border-radius:20px}
+    .form-row{margin-bottom:22px}
     .form-row.row-half{grid-template-columns:1fr;gap:0}
-    .form-row.row-half .field{margin-bottom:28px}
+    .form-row.row-half .field{margin-bottom:22px}
     .form-row.row-half .field:last-child{margin-bottom:0}
-    .checkbox-group{grid-template-columns:1fr}
-    .submit-btn{padding:18px 40px;font-size:14px}
-    .typical-grid{grid-template-columns:1fr}
+    .field label{font-size:13px;flex-wrap:wrap}
+    .req-tag,.opt-tag{font-size:9px;padding:2px 6px}
+    .field input[type="text"],.field input[type="email"],
+    .field input[type="tel"],.field select,.field textarea{
+      padding:12px 14px;font-size:14px;
+    }
+    .field-help{font-size:11px}
+    .checkbox-group{grid-template-columns:1fr;gap:8px}
+    .checkbox-group label{padding:12px 14px;font-size:13px}
+    .radio-group{gap:8px}
+    .radio-group label{padding:10px 16px;font-size:13px}
+    .privacy-box{padding:18px 20px;font-size:12px}
+    .submit-btn{padding:16px 32px;font-size:14px;letter-spacing:.05em}
+    .form-note{font-size:11px;margin-top:24px}
+    .typical-section{padding:50px 0}
+    .typical-grid{grid-template-columns:1fr;gap:14px;margin-top:30px}
+    .typical-card{padding:24px 20px;border-radius:18px}
+    .typical-icon{width:48px;height:48px;font-size:16px;margin-bottom:12px}
+    .typical-card h4{font-size:14px}
+    .typical-card p{font-size:11px}
   }
 </style>
 </head>
@@ -288,7 +315,11 @@
         <li><a href="contact.html" class="current">お問い合わせ</a></li>
       </ul>
     </nav>
-    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+    <a href="tel:0586857739" class="header-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="header-cta-pc">無料体験のお申込み</span>
+      <span class="header-cta-sp">電話で相談</span>
+    </a>
   </div>
 </header>
 
@@ -585,8 +616,14 @@
 </footer>
 
 <div class="floating-cta">
-  <a href="tel:0586857739">一宮 電話する</a>
-  <a href="tel:0523513829">中川 電話する</a>
+  <a href="tel:0586857739">
+    <span class="label">一宮店へお電話</span>
+    <span class="num">0586-85-7739</span>
+  </a>
+  <a href="tel:0523513829">
+    <span class="label">中川店へお電話</span>
+    <span class="num">052-351-3829</span>
+  </a>
 </div>
 
 <script>

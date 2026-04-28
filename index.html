@@ -349,10 +349,11 @@
   .area-info-row dd{color:var(--ink)}
   .area-info-row dd a{color:var(--green-deep);font-weight:700;text-decoration:none}
   .area-map{
-    height:200px;
-    border-radius:12px;display:flex;align-items:center;justify-content:center;
-    color:var(--green-deep);font-size:13px;letter-spacing:.1em;
+    height:240px;border-radius:12px;overflow:hidden;
     background:radial-gradient(circle at center,var(--green-soft) 30%,var(--cream-deep) 80%);
+  }
+  .area-map iframe{
+    width:100%;height:100%;border:0;display:block;
   }
   .area-radius{
     margin-top:16px;text-align:center;
@@ -364,26 +365,169 @@
   }
 
   @media(max-width:960px){
-    .staff-photo{aspect-ratio:4/3;border-radius:20px;margin:10px 0 30px}
-    .staff-caption{
-      left:16px;right:16px;bottom:16px;
-      padding:16px 20px;max-width:none;
+    /* === コンテナ・余白 === */
+    .container{padding:0 18px}
+
+    /* === HERO === */
+    .hero{padding-top:64px}
+    .hero-inner{
+      grid-template-columns:1fr;
+      gap:24px;
+      padding:24px 0 50px;
+      min-height:auto;
     }
-    .staff-caption p{font-size:13px}
-    .staff-points{grid-template-columns:1fr;gap:14px}
-    .staff-point{padding:24px}
-    .hero-inner{grid-template-columns:1fr;gap:40px;padding:40px 0 80px}
-    .hero h1{font-size:34px}
-    .worries-grid{grid-template-columns:repeat(2,1fr)}
-    .reasons-grid{grid-template-columns:1fr;gap:18px}
-    .service-block,.service-block.reverse{grid-template-columns:1fr;gap:30px}
+    .hero-visual{order:-1;margin:0 -18px}
+    .hero-photo{
+      aspect-ratio:4/3;
+      border-radius:0 0 24px 24px;
+    }
+    .hero-badge{
+      width:96px;height:96px;
+      top:auto;bottom:-30px;right:14px;
+    }
+    .hero-badge small{font-size:8px}
+    .hero-badge strong{font-size:12px}
+    .hero-badge span{font-size:9px}
+    .hero-leaf{display:none}
+    .hero-eyebrow{font-size:11px;margin-bottom:14px}
+    .hero h1{
+      font-size:26px;line-height:1.5;
+      margin-bottom:18px;letter-spacing:.01em;
+    }
+    .hero h1 .accent::after{height:6px;bottom:-2px}
+    .hero-lead{
+      font-size:14px;line-height:1.9;
+      margin-bottom:24px;
+    }
+    .hero-lead br{display:none}
+    .hero-cta-group{gap:10px;margin-bottom:28px;flex-direction:column}
+    .hero-cta-group .btn-primary,
+    .hero-cta-group .btn-secondary{
+      width:100%;justify-content:center;
+      padding:16px 20px;font-size:14px;
+    }
+    .hero-trust{
+      gap:12px;padding-top:20px;
+      justify-content:space-between;
+    }
+    .trust-item{font-size:10px;flex:1;text-align:center}
+    .trust-item strong{font-size:16px}
+
+    /* === セクション全般 === */
+    section{padding:50px 0}
+    .section-eyebrow{font-size:12px}
+    .section-title{font-size:22px;line-height:1.6;letter-spacing:.02em}
+    .section-lead{
+      font-size:13px;line-height:1.9;margin-bottom:36px;
+    }
+    .section-lead br{display:none}
+
+    /* === 悩み === */
+    .worries{padding:50px 0}
+    .worries-grid{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+    .worry-card{padding:20px 12px}
+    .worry-icon{width:64px;height:64px;margin-bottom:10px}
+    .worry-icon svg{width:40px;height:40px}
+    .worry-card h4{font-size:13px;line-height:1.4}
+    .worry-card p{font-size:11px}
+    .worries-note{
+      margin-top:24px;padding:16px 18px;
+      font-size:13px;line-height:1.8;border-radius:10px;
+    }
+
+    /* === 選ばれる理由 === */
+    .reasons-grid{grid-template-columns:1fr;gap:14px;margin-top:30px}
+    .reason-card{padding:28px 22px;border-radius:18px}
+    .reason-num{font-size:32px;margin-bottom:10px}
+    .reason-num small{font-size:11px}
+    .reason-card h3{font-size:16px;margin-bottom:10px}
+    .reason-card p{font-size:13px}
+
+    /* === 施術内容 === */
+    .services{padding:60px 0}
+    .service-block,.service-block.reverse{
+      grid-template-columns:1fr;gap:20px;margin-bottom:50px;
+    }
     .service-block.reverse .service-image{order:0}
-    .service-block h3{font-size:24px}
-    .price-cards{grid-template-columns:1fr;gap:18px}
+    .service-image{aspect-ratio:4/3}
+    .service-tag{font-size:10px;padding:4px 12px;margin-bottom:12px}
+    .service-block h3{font-size:22px;margin-bottom:14px}
+    .service-block p{font-size:13px;line-height:1.9;margin-bottom:14px}
+    .service-features li{font-size:13px}
+
+    /* === 料金 === */
+    .price-cards{grid-template-columns:1fr;gap:14px;margin-top:30px}
+    .price-card{padding:30px 22px;border-radius:18px}
     .price-card.featured{transform:none}
-    .flow-steps{grid-template-columns:repeat(2,1fr);gap:30px}
+    .price-burden{font-size:12px;margin-bottom:10px}
+    .price-amount{font-size:30px}
+    .price-amount small{font-size:11px}
+    .price-target{font-size:11px}
+
+    /* === ご利用の流れ === */
+    .flow{padding:60px 0}
+    .flow-steps{grid-template-columns:repeat(2,1fr);gap:24px;margin-top:30px}
     .flow-line{display:none}
-    .area-grid{grid-template-columns:1fr}
+    .flow-num{width:54px;height:54px;font-size:22px;margin-bottom:14px}
+    .flow-step h4{font-size:14px;line-height:1.5}
+    .flow-step p{font-size:11px;line-height:1.7}
+
+    /* === スタッフ紹介 === */
+    .staff-photo{aspect-ratio:4/3;border-radius:18px;margin:10px 0 24px}
+    .staff-caption{
+      left:12px;right:12px;bottom:12px;
+      padding:12px 16px;max-width:none;border-radius:12px;
+    }
+    .staff-tag{font-size:11px}
+    .staff-caption p{font-size:12px;line-height:1.5}
+    .staff-points{grid-template-columns:1fr;gap:12px}
+    .staff-point{padding:22px 20px;border-radius:14px}
+    .staff-point-num{font-size:12px;padding:5px 14px;margin-bottom:10px}
+    .staff-point p{font-size:13px;line-height:1.8}
+
+    /* === 院案内 === */
+    .area-grid{grid-template-columns:1fr;gap:20px;margin-top:30px}
+    .area-card{padding:24px 20px;border-radius:18px}
+    .area-card-head{gap:12px;margin-bottom:16px}
+    .area-card-mark{width:40px;height:40px}
+    .area-card h3{font-size:17px}
+    .area-info-row{grid-template-columns:70px 1fr;gap:8px;font-size:13px}
+    .area-info-row dt{font-size:12px}
+    .area-map{height:200px}
+    .area-radius{font-size:12px;margin-top:14px}
+    .area-radius strong{font-size:14px}
+
+    /* === Contact CTA === */
+    .contact-cta{padding:50px 0}
+    .contact-inner{padding:36px 20px;border-radius:20px}
+    .contact-inner h2{font-size:20px;line-height:1.6;margin-bottom:12px}
+    .contact-inner p{font-size:13px;margin-bottom:24px;line-height:1.8}
+    .contact-inner p br{display:none}
+    .contact-methods{grid-template-columns:1fr;gap:14px}
+    .contact-method{padding:24px 20px;border-radius:16px}
+    .contact-method-label{font-size:12px}
+    .contact-method h4{font-size:14px;margin-bottom:10px}
+    .contact-tel{font-size:24px}
+    .contact-form-btn{padding:14px 24px;font-size:13px;margin-top:18px}
+
+    /* === Footer === */
+    footer{padding:40px 0 80px}
+    .footer-inner{grid-template-columns:1fr;gap:24px;margin-bottom:24px}
+    .footer-desc{font-size:12px}
+    footer h5{font-size:13px;margin-bottom:14px}
+
+    /* === Floating CTA === */
+    body{padding-bottom:60px}
+  }
+
+  @media(max-width:380px){
+    .hero h1{font-size:23px}
+    .section-title{font-size:20px}
+    .worries-grid{gap:10px}
+    .worry-card{padding:18px 10px}
+    .worry-icon{width:56px;height:56px}
+    .worry-icon svg{width:34px;height:34px}
+    .worry-card h4{font-size:12px}
   }
 </style>
 </head>
@@ -410,7 +554,11 @@
         <li><a href="contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
-    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+    <a href="tel:0586857739" class="header-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="header-cta-pc">無料体験のお申込み</span>
+      <span class="header-cta-sp">電話で相談</span>
+    </a>
   </div>
 </header>
 
@@ -844,7 +992,9 @@
           <div class="area-info-row"><dt>所在地</dt><dd>〒491-0917<br>愛知県一宮市昭和2-2-30</dd></div>
           <div class="area-info-row"><dt>最寄駅</dt><dd>名鉄尾西線 観音寺駅 徒歩6分</dd></div>
         </dl>
-        <div class="area-map">[ MAP - 一宮市昭和 ]</div>
+        <div class="area-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.495695900363!2d136.78679357523262!3d35.2936627511679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037170c29a6e29%3A0xdc4e9592fb2e39b0!2z6Kiq5ZWP44Oe44OD44K144O844K444Oq44O844OV5rK755mC6Zmi5LiA5a6u!5e0!3m2!1sja!2sjp!4v1777371096559!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="リーフ治療院 一宮の地図"></iframe>
+        </div>
         <div class="area-radius"><strong>半径16km</strong>以内が訪問対象エリアです</div>
       </div>
       <div class="area-card">
@@ -860,7 +1010,9 @@
           <div class="area-info-row"><dt>受付時間</dt><dd>10:00〜18:00<br>日曜定休</dd></div>
           <div class="area-info-row"><dt>所在地</dt><dd>〒454-0823<br>名古屋市中川区富船町5-1-8 1A</dd></div>
         </dl>
-        <div class="area-map">[ MAP - 名古屋市中川区 ]</div>
+        <div class="area-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.6272002459646!2d136.87195387522584!3d35.14097565946355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003776d45ad02e5%3A0x1a4e3674f1239836!2z44CSNDU0LTA4MjMg5oSb55-l55yM5ZCN5Y-k5bGL5biC5Lit5bed5Yy65a-M6Ii555S677yV5LiB55uu77yR4oiS77yYIDFh!5e0!3m2!1sja!2sjp!4v1777371211111!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="リーフ治療院 中川の地図"></iframe>
+        </div>
         <div class="area-radius"><strong>半径16km</strong>以内が訪問対象エリアです</div>
       </div>
     </div>
@@ -937,8 +1089,14 @@
 </footer>
 
 <div class="floating-cta">
-  <a href="tel:0586857739">一宮 電話する</a>
-  <a href="tel:0523513829">中川 電話する</a>
+  <a href="tel:0586857739">
+    <span class="label">一宮店へお電話</span>
+    <span class="num">0586-85-7739</span>
+  </a>
+  <a href="tel:0523513829">
+    <span class="label">中川店へお電話</span>
+    <span class="num">052-351-3829</span>
+  </a>
 </div>
 
 </body>

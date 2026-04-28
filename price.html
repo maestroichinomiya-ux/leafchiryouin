@@ -236,14 +236,36 @@
   .free-notice p{color:rgba(250,246,236,.8);font-size:14px}
 
   @media(max-width:960px){
-    .price-overview-cards{grid-template-columns:1fr;gap:16px}
+    .price-overview{padding:50px 0}
+    .price-overview-cards{grid-template-columns:1fr;gap:14px}
+    .po-card{padding:30px 22px;border-radius:18px}
     .po-card.featured{transform:none}
-    .price-table-wrap{padding:24px 18px}
-    .body-parts{grid-template-columns:repeat(2,1fr)}
-    .example-grid{grid-template-columns:1fr}
-    .faq-q{padding:16px 20px;font-size:14px}
-    .faq-a{padding:0 20px 0 56px}
-    .faq-item.open .faq-a{padding:0 20px 18px 56px}
+    .insurance-tag{font-size:10px;padding:5px 14px}
+    .price-table-wrap{padding:24px 16px;border-radius:18px;margin-top:30px}
+    .price-table-title h3{font-size:16px;line-height:1.5}
+    .price-table-title-mark{height:24px}
+    table.price-table{font-size:11px;min-width:560px}
+    table.price-table th,table.price-table td{padding:8px 6px}
+    .body-parts{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+    .body-part-card{padding:14px 10px;border-radius:10px}
+    .body-part-num{font-size:15px}
+    .body-part-card h4{font-size:12px}
+    .body-part-fee{font-size:10px}
+    .free-notice{padding:36px 0}
+    .free-notice h3{font-size:18px;line-height:1.6}
+    .free-notice p{font-size:12px;padding:0 18px}
+    .example-grid{grid-template-columns:1fr;gap:14px;margin-top:30px}
+    .example-card{padding:26px 22px;border-radius:18px}
+    .example-card h4{font-size:15px}
+    .example-detail{padding:14px 18px;font-size:12px}
+    .example-result-label{font-size:12px}
+    .example-result-amount{font-size:22px}
+    .faq-list{margin-top:24px;gap:10px}
+    .faq-q{padding:14px 18px;font-size:13px;gap:12px}
+    .faq-q-mark{width:24px;height:24px;font-size:12px}
+    .faq-a{padding:0 18px 0 50px}
+    .faq-item.open .faq-a{padding:0 18px 16px 50px}
+    .faq-a p{font-size:12px}
   }
 </style>
 </head>
@@ -270,7 +292,11 @@
         <li><a href="contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
-    <a href="tel:0586857739" class="header-cta">無料体験のお申込み</a>
+    <a href="tel:0586857739" class="header-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="header-cta-pc">無料体験のお申込み</span>
+      <span class="header-cta-sp">電話で相談</span>
+    </a>
   </div>
 </header>
 
@@ -679,8 +705,14 @@
 </footer>
 
 <div class="floating-cta">
-  <a href="tel:0586857739">一宮 電話する</a>
-  <a href="tel:0523513829">中川 電話する</a>
+  <a href="tel:0586857739">
+    <span class="label">一宮店へお電話</span>
+    <span class="num">0586-85-7739</span>
+  </a>
+  <a href="tel:0523513829">
+    <span class="label">中川店へお電話</span>
+    <span class="num">052-351-3829</span>
+  </a>
 </div>
 
 </body>
