@@ -49,14 +49,7 @@
     font-size:16px;line-height:2;color:var(--ink-soft);
     margin-bottom:36px;max-width:520px;
   }
-  .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
-  .hero-trust{display:flex;gap:28px;padding-top:28px;border-top:1px dashed var(--line)}
-  .trust-item{font-size:12px;color:var(--ink-soft)}
-  .trust-item strong{
-    display:block;font-family:'Noto Serif JP',serif;
-    font-size:22px;color:var(--green-deep);font-weight:700;
-    letter-spacing:.02em;margin-bottom:2px;
-  }
+  .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;align-items:center}
   .hero-visual{position:relative}
   .hero-photo{
     width:100%;aspect-ratio:4/5;
@@ -86,6 +79,43 @@
     position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;
     color:var(--green);opacity:.4;font-size:120px;
     bottom:-20px;left:-30px;line-height:1;pointer-events:none;
+  }
+  /* PCではオーバーレイコピーは非表示 */
+  .hero-overlay-copy{display:none}
+
+  /* ========== HERO TRUST(信頼指標)=== */
+  .hero-trust{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:14px;padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .trust-item{
+    background:var(--cream-deep);
+    padding:18px 14px;border-radius:14px;
+    border:1px solid var(--line);
+    text-align:center;
+    transition:.3s;position:relative;
+  }
+  .trust-item:hover{
+    border-color:var(--green);
+    background:#fff;
+  }
+  .trust-icon{
+    width:36px;height:36px;margin:0 auto 8px;
+    background:var(--green-deep);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream);
+  }
+  .trust-icon svg{width:18px;height:18px}
+  .trust-item strong{
+    display:block;font-family:'Noto Serif JP',serif;
+    font-size:18px;color:var(--green-deep);font-weight:700;
+    letter-spacing:.02em;margin-bottom:2px;line-height:1.2;
+  }
+  .trust-item span{
+    font-size:11px;color:var(--ink-soft);
+    letter-spacing:.04em;line-height:1.4;display:block;
   }
 
   /* ========== WORRIES ========== */
@@ -369,49 +399,117 @@
     .container{padding:0 18px}
 
     /* === HERO === */
-    .hero{padding-top:64px}
+    .hero{padding-top:60px}
     .hero-inner{
       grid-template-columns:1fr;
-      gap:24px;
-      padding:24px 0 50px;
+      gap:0;
+      padding:0 18px;
       min-height:auto;
     }
-    .hero-visual{order:-1;margin:0 -18px}
-    .hero-photo{
-      aspect-ratio:4/3;
-      border-radius:0 0 24px 24px;
+    /* 画像にオーバーレイでコピーを乗せる */
+    .hero-visual{
+      order:-1;margin:0 -18px;
+      position:relative;
     }
+    /* SPでのコピーエリア(画像の下、左右余白付き) */
+    .hero-copy{
+      padding:32px 0 50px;
+    }
+    .hero-photo{
+      aspect-ratio:3/4;
+      border-radius:0;
+      box-shadow:none;
+    }
+    .hero-photo::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,
+        rgba(0,0,0,0) 30%,
+        rgba(63,90,51,0.4) 65%,
+        rgba(63,90,51,0.85) 100%);
+    }
+    .hero-overlay-copy{
+      position:absolute;left:24px;right:24px;bottom:32px;
+      z-index:2;color:var(--cream);
+    }
+    .hero-overlay-eyebrow{
+      font-family:'Cormorant Garamond',serif;font-style:italic;
+      font-size:11px;color:rgba(250,246,236,.85);
+      letter-spacing:.15em;margin-bottom:10px;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .hero-overlay-eyebrow::before{
+      content:"";width:20px;height:1px;
+      background:rgba(250,246,236,.7);
+    }
+    .hero-overlay-copy h1{
+      font-family:'Noto Serif JP',serif;font-weight:700;
+      font-size:24px;line-height:1.5;color:var(--cream);
+      letter-spacing:.02em;margin-bottom:0;
+      text-shadow:0 2px 12px rgba(0,0,0,.3);
+    }
+    .hero-overlay-copy h1 .accent{
+      color:var(--green-soft);
+    }
+    .hero-overlay-copy h1 .accent::after{display:none}
     .hero-badge{
-      width:96px;height:96px;
-      top:auto;bottom:-30px;right:14px;
+      width:84px;height:84px;
+      top:auto;bottom:auto;
+      top:14px;right:14px;
     }
     .hero-badge small{font-size:8px}
-    .hero-badge strong{font-size:12px}
+    .hero-badge strong{font-size:11px}
     .hero-badge span{font-size:9px}
     .hero-leaf{display:none}
-    .hero-eyebrow{font-size:11px;margin-bottom:14px}
-    .hero h1{
-      font-size:26px;line-height:1.5;
-      margin-bottom:18px;letter-spacing:.01em;
-    }
-    .hero h1 .accent::after{height:6px;bottom:-2px}
+
+    /* SPではPCコピーを非表示、画像オーバーレイを表示 */
+    .hero-copy > .hero-eyebrow,
+    .hero-copy > h1{display:none}
+    .hero-overlay-copy{display:block}
+
     .hero-lead{
       font-size:14px;line-height:1.9;
-      margin-bottom:24px;
+      margin-bottom:24px;max-width:none;
     }
     .hero-lead br{display:none}
-    .hero-cta-group{gap:10px;margin-bottom:28px;flex-direction:column}
-    .hero-cta-group .btn-primary,
+
+    /* === ボタン:メイン主役、サブはテキストリンク === */
+    .hero-cta-group{
+      display:flex;gap:0;margin-bottom:32px;
+      flex-direction:column;align-items:center;
+    }
+    .hero-cta-group .btn-primary{
+      width:100%;max-width:340px;
+      justify-content:center;
+      padding:16px 24px;font-size:14px;
+      letter-spacing:.05em;
+      box-shadow:0 8px 20px rgba(63,90,51,.22);
+    }
     .hero-cta-group .btn-secondary{
-      width:100%;justify-content:center;
-      padding:16px 20px;font-size:14px;
+      background:transparent;
+      border:none;
+      color:var(--green-mid);
+      padding:14px 0;
+      font-size:13px;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      width:auto;
     }
+    .hero-cta-group .btn-secondary:hover{
+      background:transparent;color:var(--green-deep);
+    }
+
+    /* === 信頼指標(SP) === */
     .hero-trust{
-      gap:12px;padding-top:20px;
-      justify-content:space-between;
+      gap:8px;padding-top:28px;
+      border-top:1px solid var(--line);
     }
-    .trust-item{font-size:10px;flex:1;text-align:center}
-    .trust-item strong{font-size:16px}
+    .trust-item{
+      padding:14px 8px;border-radius:12px;
+    }
+    .trust-icon{width:28px;height:28px;margin-bottom:6px}
+    .trust-icon svg{width:14px;height:14px}
+    .trust-item strong{font-size:14px}
+    .trust-item span{font-size:9.5px;letter-spacing:.02em}
 
     /* === セクション全般 === */
     section{padding:50px 0}
@@ -584,9 +682,27 @@
         <a href="#flow" class="btn-secondary">ご利用の流れを見る</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><strong>全員</strong>国家資格保有</div>
-        <div class="trust-item"><strong>16km</strong>訪問対応エリア</div>
-        <div class="trust-item"><strong>無料</strong>体験マッサージ</div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <strong>全員</strong>
+          <span>国家資格保有</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <strong>16km</strong>
+          <span>訪問対応エリア</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <strong>無料</strong>
+          <span>体験マッサージ</span>
+        </div>
       </div>
     </div>
     <div class="hero-visual">
@@ -595,6 +711,14 @@
           <source srcset="images/hero.webp" type="image/webp">
           <img src="images/hero.jpg" alt="患者さまに親身に寄り添う一宮訪問マッサージ" loading="eager">
         </picture>
+        <div class="hero-overlay-copy">
+          <div class="hero-overlay-eyebrow">Visiting Massage &amp; Acupuncture</div>
+          <h1>
+            歩くのが、つらい。<br>
+            その不安に、<br>
+            <span class="accent">寄り添う訪問施術</span>を。
+          </h1>
+        </div>
       </div>
       <div class="hero-badge">
         <small>FREE TRIAL</small>
