@@ -394,6 +394,122 @@
     font-size:16px;display:block;margin-bottom:2px;
   }
 
+  /* ========== ONLINE SHOP セクション ========== */
+  .shop-cta{
+    padding:80px 0;background:var(--cream);
+    position:relative;overflow:hidden;
+  }
+  .shop-cta::before{
+    content:"Online Shop";
+    position:absolute;top:20px;right:-10px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:140px;color:var(--green-soft);opacity:.25;
+    line-height:1;pointer-events:none;
+  }
+  .shop-cta-inner{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:60px;
+    align-items:center;position:relative;z-index:2;
+  }
+  .shop-cta-copy{position:relative}
+  .shop-cta-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--green-mid);font-size:14px;letter-spacing:.12em;
+    margin-bottom:18px;
+  }
+  .shop-cta-eyebrow::before{
+    content:"";width:28px;height:1px;background:var(--green-mid);
+  }
+  .shop-cta h2{
+    font-family:'Noto Serif JP',serif;font-weight:700;
+    font-size:34px;color:var(--green-deep);line-height:1.5;
+    letter-spacing:.03em;margin-bottom:20px;
+  }
+  .shop-cta h2 .accent{color:var(--green-mid)}
+  .shop-cta-lead{
+    font-size:15px;color:var(--ink-soft);line-height:2;
+    margin-bottom:28px;
+  }
+  .shop-cta-features{
+    display:grid;gap:10px;margin-bottom:32px;
+  }
+  .shop-cta-feature{
+    display:flex;align-items:center;gap:12px;
+    font-size:14px;color:var(--ink);
+  }
+  .shop-cta-feature-icon{
+    flex:none;width:32px;height:32px;
+    background:var(--cream-deep);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--green-mid);
+  }
+  .shop-cta-feature-icon svg{width:16px;height:16px}
+  .shop-cta-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:18px 40px;border-radius:999px;
+    background:var(--green-deep);color:var(--cream);
+    font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;
+    letter-spacing:.08em;
+    box-shadow:0 12px 28px rgba(63,90,51,.22);
+    transition:.3s;
+  }
+  .shop-cta-btn:hover{
+    background:var(--green-mid);transform:translateY(-2px);
+    box-shadow:0 16px 34px rgba(63,90,51,.28);
+  }
+  .shop-cta-btn svg{width:14px;height:14px;transition:transform .2s}
+  .shop-cta-btn:hover svg{transform:translate(2px,-2px)}
+  .shop-cta-visual{
+    position:relative;
+  }
+  .shop-cta-card{
+    background:#fff;border-radius:24px;padding:36px 30px;
+    box-shadow:0 20px 50px rgba(63,90,51,.14);
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .shop-cta-card::before{
+    content:"";position:absolute;top:-16px;left:36px;
+    width:60px;height:32px;background:var(--accent);
+    border-radius:8px 8px 0 0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .shop-cta-card-badge{
+    position:absolute;top:-14px;left:36px;
+    padding:8px 16px;background:var(--accent);color:#fff;
+    border-radius:8px;font-family:'Noto Serif JP',serif;
+    font-size:12px;font-weight:700;letter-spacing:.1em;
+    z-index:2;
+  }
+  .shop-cta-category{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:14px;margin-top:14px;
+  }
+  .shop-cta-item{
+    padding:20px 16px;background:var(--cream-deep);
+    border-radius:14px;text-align:center;
+    border:1px solid var(--line);
+    transition:.2s;
+  }
+  .shop-cta-item:hover{
+    background:#fff;border-color:var(--green);
+    transform:translateY(-2px);
+  }
+  .shop-cta-item-icon{
+    width:40px;height:40px;margin:0 auto 10px;
+    background:var(--green-deep);color:var(--cream);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+  }
+  .shop-cta-item-icon svg{width:20px;height:20px}
+  .shop-cta-item strong{
+    display:block;font-family:'Noto Serif JP',serif;
+    font-size:14px;color:var(--green-deep);font-weight:700;
+    margin-bottom:4px;letter-spacing:.03em;
+  }
+  .shop-cta-item span{
+    font-size:11px;color:var(--ink-soft);letter-spacing:.02em;
+  }
+
   @media(max-width:960px){
     /* === コンテナ・余白 === */
     .container{padding:0 18px}
@@ -608,6 +724,27 @@
     .contact-tel{font-size:24px}
     .contact-form-btn{padding:14px 24px;font-size:13px;margin-top:18px}
 
+    /* === Online Shop === */
+    .shop-cta{padding:50px 0}
+    .shop-cta::before{font-size:70px;top:10px;right:-5px}
+    .shop-cta-inner{grid-template-columns:1fr;gap:32px}
+    .shop-cta-eyebrow{font-size:12px;margin-bottom:12px}
+    .shop-cta h2{font-size:22px;line-height:1.6;margin-bottom:14px}
+    .shop-cta-lead{font-size:13px;line-height:1.9;margin-bottom:20px}
+    .shop-cta-features{margin-bottom:24px;gap:8px}
+    .shop-cta-feature{font-size:13px}
+    .shop-cta-feature-icon{width:28px;height:28px}
+    .shop-cta-feature-icon svg{width:14px;height:14px}
+    .shop-cta-btn{padding:16px 32px;font-size:14px;width:100%;justify-content:center}
+    .shop-cta-card{padding:30px 20px 24px;border-radius:20px}
+    .shop-cta-card-badge{font-size:11px;padding:6px 12px;left:24px;top:-12px}
+    .shop-cta-category{gap:10px}
+    .shop-cta-item{padding:16px 10px}
+    .shop-cta-item-icon{width:32px;height:32px;margin-bottom:8px}
+    .shop-cta-item-icon svg{width:16px;height:16px}
+    .shop-cta-item strong{font-size:12px}
+    .shop-cta-item span{font-size:10px}
+
     /* === Footer === */
     footer{padding:40px 0 80px}
     .footer-inner{grid-template-columns:1fr;gap:24px;margin-bottom:24px}
@@ -650,6 +787,10 @@
         <li><a href="price.html">料金</a></li>
         <li><a href="index.html#staff">スタッフ</a></li>
         <li><a href="contact.html">お問い合わせ</a></li>
+        <li><a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="nav-shop">
+          ONLINE SHOP
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a></li>
       </ul>
     </nav>
     <a href="tel:0586857739" class="header-cta">
@@ -1143,6 +1284,85 @@
   </div>
 </section>
 
+<!-- ONLINE SHOP CTA -->
+<section class="shop-cta" id="shop">
+  <div class="container">
+    <div class="shop-cta-inner">
+      <div class="shop-cta-copy">
+        <div class="shop-cta-eyebrow">Online Shop</div>
+        <h2>
+          日々のケアを、<br>
+          <span class="accent">ご自宅から。</span>
+        </h2>
+        <p class="shop-cta-lead">
+          リーフ治療院の施術者が厳選した、日常のセルフケアに寄り添うケア用品を<br>
+          オンラインショップでもお届けしています。<br>
+          施術と併せて、ご自宅でのケアもサポートいたします。
+        </p>
+        <div class="shop-cta-features">
+          <div class="shop-cta-feature">
+            <div class="shop-cta-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            国家資格を持つ施術者が厳選したケア用品
+          </div>
+          <div class="shop-cta-feature">
+            <div class="shop-cta-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            送料一律・全国どこでもお届け
+          </div>
+          <div class="shop-cta-feature">
+            <div class="shop-cta-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            ご入金確認後、通常3営業日以内に発送
+          </div>
+        </div>
+        <a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="shop-cta-btn">
+          オンラインショップを見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="shop-cta-visual">
+        <div class="shop-cta-card">
+          <span class="shop-cta-card-badge">Pick Up</span>
+          <div class="shop-cta-category">
+            <a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="shop-cta-item">
+              <div class="shop-cta-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <strong>サポーター</strong>
+              <span>膝・腰・肩の日常ケア</span>
+            </a>
+            <a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="shop-cta-item">
+              <div class="shop-cta-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M18 8a6 6 0 0 0-12 0c0 7 6 12 6 12s6-5 6-12"/><circle cx="12" cy="8" r="2"/></svg>
+              </div>
+              <strong>温熱グッズ</strong>
+              <span>肩・首・腰を温めて</span>
+            </a>
+            <a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="shop-cta-item">
+              <div class="shop-cta-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <strong>セルフケア用品</strong>
+              <span>マッサージボールなど</span>
+            </a>
+            <a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener" class="shop-cta-item">
+              <div class="shop-cta-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L2 8l4 5"/><path d="M18 3l4 5-4 5"/><path d="M8 8h8"/><path d="M12 15v6"/></svg>
+              </div>
+              <strong>姿勢サポート</strong>
+              <span>クッション・矯正用品</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT CTA -->
 <section class="contact-cta" id="contact">
   <div class="container">
@@ -1198,6 +1418,7 @@
           <li><a href="price.html">料金</a></li>
           <li><a href="index.html#staff">スタッフ</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="https://shop.leaf-chiryouin.com/" target="_blank" rel="noopener">ONLINE SHOP</a></li>
         </ul>
       </div>
       <div>
